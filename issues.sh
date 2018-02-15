@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for i in "$(cat issues.txt)"
+while read i
 do
     ghi open -m "$i"
-done
+done < issues.txt

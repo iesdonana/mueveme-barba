@@ -31,7 +31,7 @@ CREATE TABLE noticias
                                    ON DELETE NO ACTION
                                    ON UPDATE CASCADE
   , usuario_id      BIGINT         NOT NULL
-                                   REFERENCES categorias (id)
+                                   REFERENCES usuarios (id)
                                    ON DELETE NO ACTION
                                    ON UPDATE CASCADE
 );
@@ -50,7 +50,7 @@ CREATE TABLE comentarios
                                 ON UPDATE CASCADE
   , padre_id        BIGINT
   , usuario_id      BIGINT      NOT NULL
-                                REFERENCES categorias (id)
+                                REFERENCES usuarios (id)
                                 ON DELETE NO ACTION
                                 ON UPDATE CASCADE
 );

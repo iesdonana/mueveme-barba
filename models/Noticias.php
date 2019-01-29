@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $titulo
  * @property string $cuerpo
+ * @property string $noticia
  * @property int $categoria_id
  * @property int $usuario_id
  *
@@ -33,12 +34,12 @@ class Noticias extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['titulo', 'categoria_id', 'usuario_id'], 'required'],
+            [['titulo', 'noticia', 'categoria_id', 'usuario_id'], 'required'],
             [['cuerpo'], 'string'],
             [['categoria_id', 'usuario_id'], 'default', 'value' => null],
             [['categoria_id', 'usuario_id'], 'integer'],
-            [['titulo'], 'string', 'max' => 255],
-            [['titulo'], 'unique'],
+            [['titulo', 'noticia'], 'string', 'max' => 255],
+            [['noticia'], 'unique'],
             [['categoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categorias::className(), 'targetAttribute' => ['categoria_id' => 'id']],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuarios::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
@@ -53,6 +54,7 @@ class Noticias extends \yii\db\ActiveRecord
             'id' => 'ID',
             'titulo' => 'Titulo',
             'cuerpo' => 'Cuerpo',
+            'noticia' => 'Noticia',
             'categoria_id' => 'Categoria ID',
             'usuario_id' => 'Usuario ID',
         ];

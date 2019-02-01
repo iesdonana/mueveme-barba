@@ -35,6 +35,7 @@ CREATE TABLE noticias
                                    REFERENCES usuarios (id)
                                    ON DELETE NO ACTION
                                    ON UPDATE CASCADE
+  /* Falta crear created_at */
 );
 
 DROP TABLE IF EXISTS comentarios CASCADE;

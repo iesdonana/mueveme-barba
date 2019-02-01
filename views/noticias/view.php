@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     $str = mb_substr($model->noticia, $inicio, $fin);
     ?>
     <small>por <?= $model->usuario->nombre ?> a <?= Html::a($str, $model->noticia) ?>  </small><br>
-    <!-- Falta fecha de noticias -->
+    <!-- Falta fecha de noticia -->
 
     <?= Html::encode($model->cuerpo) ?>
 

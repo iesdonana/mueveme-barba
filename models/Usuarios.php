@@ -17,6 +17,11 @@ use yii\web\IdentityInterface;
  */
 class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
 {
+    const SCENARIO_CREATE = 'create';
+    const SCENARIO_UPDATE = 'update';
+
+    public $password_repeat;
+
     /**
      * {@inheritdoc}
      */
@@ -33,8 +38,10 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [['nombre', 'password'], 'required'],
             [['nombre'], 'string', 'max' => 32],
-            [['password'], 'string', 'max' => 60],
+            //[['password'], 'string', 'max' => 60],
             [['nombre'], 'unique'],
+            [['password', 'password_repeat'], 'required', 'on' => [self::SCENARIO_CREATE]],
+            [['password'], 'compare', 'on' => [self::SCENARIO_CREATE, self::SCENARIO_UPDATE]],
         ];
     }
 
@@ -116,5 +123,15 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        $this->password = Yii::$app->security
+        ->generatePasswordHash($this->password);
+        return true;
     }
 }

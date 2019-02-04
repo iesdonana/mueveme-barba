@@ -25,8 +25,11 @@ CREATE TABLE noticias
 (
     id              BIGSERIAL      PRIMARY KEY
   , titulo          VARCHAR(255)   NOT NULL
-  , cuerpo          TEXT
   , noticia         VARCHAR(255)   UNIQUE NOT NULL
+  , cuerpo          TEXT
+  , created_at      TIMESTAMP      NOT NULL
+                                   DEFAULT CURRENT_TIMESTAMP
+  , movimiento      INT            DEFAULT 0
   , categoria_id    BIGINT         NOT NULL
                                    REFERENCES categorias (id)
                                    ON DELETE NO ACTION
@@ -35,6 +38,7 @@ CREATE TABLE noticias
                                    REFERENCES usuarios (id)
                                    ON DELETE NO ACTION
                                    ON UPDATE CASCADE
+  /* Falta crear created_at */
 );
 
 DROP TABLE IF EXISTS comentarios CASCADE;

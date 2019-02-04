@@ -10,7 +10,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'language' => 'es-ES',
     'components' => [
@@ -61,6 +61,7 @@ $config = [
         */
     ],
     'params' => $params,
+    'defaultRoute' => 'noticias/index',
 ];
 
 if (YII_ENV_DEV) {

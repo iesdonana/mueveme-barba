@@ -37,6 +37,7 @@ class NoticiasController extends Controller
     {
         $searchModel = new NoticiasSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->joinWith('usuario');
 
         return $this->render('index', [
             'searchModel' => $searchModel,

@@ -1,14 +1,24 @@
+<?php
+use yii\helpers\Html;
+?>
+
 <div class="noticias-view">
 
-    <h1><?= Html::a(Html::encode($this->title), Html::encode($model->noticia)) ?></h1>
+    <h1><?= Html::a(Html::encode($model->titulo), Html::encode($model->noticia)) ?></h1>
 
     <?php
+    $formatter = \Yii::$app->formatter;
+
     $inicio = strpos($model->noticia, "//")+2;
     $fin = strpos($model->noticia, "/", $inicio)-$inicio;
     $str = mb_substr($model->noticia, $inicio, $fin);
     ?>
-    <small>por <?= $model->usuario->nombre ?> a <?= Html::a($str, $model->noticia) ?>  </small><br>
-    <!-- Falta fecha de noticia -->
+    <small>
+        por <?= Html::a(Html::encode($model->usuario->nombre),
+                ['usuarios/view', 'id' => $model->usuario_id]) ?>
+        a <?= Html::a(Html::encode($str), Html::encode($model->noticia)) ?> -----
+        Creado a <?= $formatter->asTime($model->created_at, 'short') ?> <?= $formatter->asRelativeTime($model->created_at, new DateTime()) ?>
+    </small><br>
 
     <?= Html::encode($model->cuerpo) ?>
 

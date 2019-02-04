@@ -14,9 +14,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'noticia')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'cuerpo')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'noticia')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'created_at')->textInput() ?>
+
+    <?= $form->field($model, 'movimiento')->textInput() ?>
 
     <?= $form->field($model, 'categoria_id')->textInput() ?>
 

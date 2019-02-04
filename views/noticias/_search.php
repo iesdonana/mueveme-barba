@@ -15,15 +15,19 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php // echo $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'titulo') ?>
 
-    <?= $form->field($model, 'cuerpo') ?>
+    <?php // echo $form->field($model, 'noticia') ?>
 
-    <?= $form->field($model, 'noticia') ?>
+    <?php // echo $form->field($model, 'cuerpo') ?>
 
-    <?= $form->field($model, 'categoria_id') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
+
+    <?php // echo $form->field($model, 'movimiento') ?>
+
+    <?php // echo $form->field($model, 'categoria_id') ?>
 
     <?php // echo $form->field($model, 'usuario_id') ?>
 

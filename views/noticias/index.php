@@ -1,38 +1,25 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\NoticiasSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Noticias';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="noticias-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?= $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Noticias', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
+    <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'titulo',
-            'cuerpo:ntext',
-            'noticia',
-            'categoria_id',
-            //'usuario_id',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => function ($model, $key, $index, $widget) {
+            return $this->render('_smallView', ['model' => $model]);
+        },
+    ]) ?>
 </div>

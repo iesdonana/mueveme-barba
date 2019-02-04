@@ -17,8 +17,8 @@ class NoticiasSearch extends Noticias
     public function rules()
     {
         return [
-            [['id', 'categoria_id', 'usuario_id'], 'integer'],
-            [['titulo', 'cuerpo', 'noticia'], 'safe'],
+            [['id', 'movimiento', 'categoria_id', 'usuario_id'], 'integer'],
+            [['titulo', 'noticia', 'cuerpo', 'created_at'], 'safe'],
         ];
     }
 
@@ -59,13 +59,15 @@ class NoticiasSearch extends Noticias
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'movimiento' => $this->movimiento,
             'categoria_id' => $this->categoria_id,
             'usuario_id' => $this->usuario_id,
         ]);
 
         $query->andFilterWhere(['ilike', 'titulo', $this->titulo])
-            ->andFilterWhere(['ilike', 'cuerpo', $this->cuerpo])
-            ->andFilterWhere(['ilike', 'noticia', $this->noticia]);
+            ->andFilterWhere(['ilike', 'noticia', $this->noticia])
+            ->andFilterWhere(['ilike', 'cuerpo', $this->cuerpo]);
 
         return $dataProvider;
     }

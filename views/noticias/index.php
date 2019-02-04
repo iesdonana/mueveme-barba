@@ -6,9 +6,6 @@ use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\NoticiasSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Noticias';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="noticias-index">
 

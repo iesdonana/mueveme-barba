@@ -21,6 +21,8 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     const SCENARIO_CREATE = 'create';
     const SCENARIO_UPDATE = 'update';
     public $password_repeat;
+    public $token;
+
     /**
      * {@inheritdoc}
      */
@@ -36,7 +38,7 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['nombre', 'email', 'password'], 'required'],
-            [['nombre'], 'string', 'max' => 32],
+            [['nombre, token'], 'string', 'max' => 32],
             [['email'], 'string', 'max' => 255],
             [['password'], 'string', 'max' => 60],
             [['email'], 'unique'],
@@ -147,5 +149,10 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
             }
         }
         return true;
+    }
+
+    public function setToken()
+    {
+        $this->token = Yii::$app->security->generateRandomString();
     }
 }

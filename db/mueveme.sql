@@ -8,6 +8,7 @@ CREATE TABLE usuarios
 (
     id       BIGSERIAL   PRIMARY KEY
   , nombre   VARCHAR(32) NOT NULL UNIQUE
+  , email    VARCHAR(255) NOT NULL UNIQUE
   , password VARCHAR(60) NOT NULL
 );
 
@@ -63,10 +64,10 @@ CREATE TABLE comentarios
 ALTER TABLE comentarios ADD CONSTRAINT fk1 FOREIGN KEY (padre_id) REFERENCES comentarios (id);
 
 
-INSERT INTO usuarios (nombre, password)
-VALUES ('admin', crypt('admin', gen_salt('bf', 10)))
-     , ('demo', crypt('demo', gen_salt('bf', 10)))
-     , ('pepe', crypt('pepe', gen_salt('bf', 10)));
+INSERT INTO usuarios (nombre, email, password)
+VALUES ('admin', 'joseluis.castillo@iesdonana.org', crypt('admin', gen_salt('bf', 10)))
+     , ('demo', 'arturo.barba@iesdonana.org', crypt('demo', gen_salt('bf', 10)))
+     , ('pepe', 'francisco.barba@iesdonana.org', crypt('pepe', gen_salt('bf', 10)));
 
 INSERT INTO categorias (categoria)
 VALUES ('Actualidad')

@@ -24,7 +24,7 @@ use yii\helpers\Html;
 
     <div class="row">
         <?= Html::a('Comentarios',
-                ['noticias/view', 'id' => $model->id],
+                ['comentarios/ver','id'=> $model->id],
                 ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Html::encode($model->categoria->categoria),
                 ['noticias/index', 'NoticiasSearch[categoria_id]' => $model->categoria_id],

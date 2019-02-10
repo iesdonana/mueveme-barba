@@ -70,6 +70,7 @@ class NoticiasController extends Controller
         ]);
     }
 
+
     /**
      * Creates a new Noticias model.
      * If creation is successful, the browser will be redirected to the 'view' page.

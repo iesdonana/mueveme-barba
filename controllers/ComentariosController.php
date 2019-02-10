@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Comentarios;
 use app\models\ComentariosSearch;
+use app\models\Noticias;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -65,6 +66,23 @@ class ComentariosController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+        ]);
+    }
+
+    public function actionVer($id)
+    {
+        $model = Noticias::findOne($id);
+
+        $searchModel = new ComentariosSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query
+        ->joinWith('usuario')
+        ->where(['noticia_id' => $id]);
+
+        return $this->render('ver', [
+            'model' => $model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 

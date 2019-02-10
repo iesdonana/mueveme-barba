@@ -58,6 +58,22 @@ class NoticiasController extends Controller
         ]);
     }
 
+
+    public function actionVer($id)
+    {
+        $searchModel = new NoticiasSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->joinWith('usuario');
+
+        return $this->render('ver', [
+            'model' => $this->findModel($id),
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
+
     /**
      * Creates a new Noticias model.
      * If creation is successful, the browser will be redirected to the 'view' page.

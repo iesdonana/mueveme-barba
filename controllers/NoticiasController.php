@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Categorias;
 use app\models\Noticias;
 use app\models\NoticiasSearch;
 use Yii;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -24,6 +26,16 @@ class NoticiasController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['update', 'delete', 'create'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
@@ -68,11 +80,14 @@ class NoticiasController extends Controller
         $model = new Noticias();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Error.');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+
         return $this->render('create', [
             'model' => $model,
+            'listaCategorias' => $this->listaCategorias(),
         ]);
     }
 
@@ -93,6 +108,7 @@ class NoticiasController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'listaCategorias' => $this->listaCategorias(),
         ]);
     }
 
@@ -124,5 +140,13 @@ class NoticiasController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    protected function listaCategorias()
+    {
+        return Categorias::find()
+            ->select('categoria')
+            ->indexBy('id')
+            ->column();
     }
 }

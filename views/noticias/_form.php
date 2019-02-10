@@ -14,20 +14,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'noticia')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'noticia')->textInput(['maxlength' => true])->label('Link') ?>
 
     <?= $form->field($model, 'cuerpo')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?php // echo $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'movimiento')->textInput() ?>
+    <?php // echo $form->field($model, 'movimiento')->textInput() ?>
 
-    <?= $form->field($model, 'categoria_id')->textInput() ?>
+    <?= $form->field($model, 'categoria_id')->dropDownList($listaCategorias)->label('Categoria') ?>
 
-    <?= $form->field($model, 'usuario_id')->textInput() ?>
+    <?= $form->field($model, 'usuario_id')->hiddenInput(['value' => Yii::$app->user->identity->id])->label(false) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

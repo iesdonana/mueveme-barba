@@ -31,5 +31,4 @@ use yii\helpers\Html;
                 ['class' => 'btn btn-primary'])
          ?>
     </div>
-
 </div>

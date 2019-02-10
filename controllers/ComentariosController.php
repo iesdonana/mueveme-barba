@@ -6,6 +6,7 @@ use app\models\Comentarios;
 use app\models\ComentariosSearch;
 use app\models\Noticias;
 use Yii;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -25,6 +26,16 @@ class ComentariosController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
@@ -79,8 +90,10 @@ class ComentariosController extends Controller
      * Creates a new Comentarios model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
+     * @param null|mixed $pelicula_id
+     * @param null|mixed $padre_id
      */
-    public function actionCreate()
+    public function actionCreate($pelicula_id, $padre_id = null)
     {
         $model = new Comentarios();
 
@@ -90,6 +103,8 @@ class ComentariosController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'pelicula_id' => $pelicula_id,
+            'padre_id' => $padre_id,
         ]);
     }
 

@@ -1,12 +1,11 @@
 <?php
-
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Comentarios */
 
-$this->title = 'Create Comentarios';
-$this->params['breadcrumbs'][] = ['label' => 'Comentarios', 'url' => ['index']];
+$this->title = 'Comentar una noticia';
+//$this->params['breadcrumbs'][] = ['label' => '', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="comentarios-create">
@@ -15,6 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'pelicula_id' => $pelicula_id,
+        'padre_id' => $padre_id,
     ]) ?>
 
 </div>

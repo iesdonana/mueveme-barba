@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Noticias */
@@ -22,7 +23,16 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'movimiento')->textInput() ?>
 
-    <?= $form->field($model, 'categoria_id')->dropDownList($listaCategorias)->label('Categoria') ?>
+    <?=
+    $form->field($model, 'categoria_id')
+    ->widget(Select2::class,['data'=>$listaCategorias,
+        'options'=>[
+            'placeholder'=> 'Busca, Reventao!',
+        ],
+    ])
+    ->label('Categoria')
+    ?>
+
 
     <?= $form->field($model, 'usuario_id')->hiddenInput(['value' => Yii::$app->user->identity->id])->label(false) ?>
 

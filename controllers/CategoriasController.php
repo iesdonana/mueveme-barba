@@ -3,12 +3,9 @@
 namespace app\controllers;
 
 use app\models\Categorias;
-use app\models\Categorias;
 use app\models\CategoriasSearch;
 use Yii;
-use yii\db\Query;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -133,14 +130,12 @@ class CategoriasController extends Controller
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $out = ['results' => ['id' => '', 'text' => '']];
         if ($q !== null) {
-            $query = new Query();
-            Categorias::find()->select('id, categoria')
-            ->from('categorias')
-            ->where(['ilike', 'categoria', $q])
-            ->limit(20)->isArray();
-            $command = $query->createCommand();
-            $data = $command->queryAll();
-            $out['results'] = array_values($data);
+            $out['results'] = Categorias::find()
+                ->select('id, categoria AS text')
+                ->where(['ilike', 'categoria', $q])
+                ->limit(20)
+                ->asArray()
+                ->all();
         } elseif ($id > 0) {
             $out['results'] = ['id' => $id, 'text' => Categorias::find($id)->categoria];
         }

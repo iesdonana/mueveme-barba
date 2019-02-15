@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
+use yii\web\JsExpression;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Noticias */
@@ -24,10 +26,23 @@ use kartik\select2\Select2;
     <?php // echo $form->field($model, 'movimiento')->textInput() ?>
 
     <?=
-    $form->field($model, 'categoria_id')
-    ->widget(Select2::class,['data'=>$listaCategorias,
-        'options'=>[
-            'placeholder'=> 'Busca, Reventao!',
+    $form->field($model, 'categoria_id')->widget(Select2::classname(), [
+        'initValueText' => '', // set the initial display text
+        'options' => ['placeholder' => 'Selecciona una categoria...'],
+        'pluginOptions' => [
+            'allowClear' => true,
+            'minimumInputLength' => 2,
+            'language' => [
+                'errorLoading' => new JsExpression("function () { return 'Esperando el resultado...'; }"),
+            ],
+            'ajax' => [
+                'url' => Url::to(['categorias/list']),
+                'dataType' => 'json',
+                'data' => new JsExpression('function(params) { return {q:params.term}; }')
+            ],
+        'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
+        'templateResult' => new JsExpression('function(categorias) { return categorias.text; }'),
+        'templateSelection' => new JsExpression('function (categorias) { return categorias.text; }'),
         ],
     ])
     ->label('Categoria')

@@ -26,26 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'itemOptions' => ['class' => 'item'],
             'itemView' => function ($model, $key, $index, $widget) {
-                return $this->render('_smallView', ['model' => $model]);
+                return $this->render('_smallView', ['model' => $model //'comentario' => $comentario
+            ]);
             },
         ]) ?>
-    </div>
-
-    <div class="row votos">
-        <div class="col-md-1">
-            <?= Html::beginForm(Url::to(['votos/registrar'])) ?>
-            <?= Html::hiddenInput('votacion', 'true') ?>
-            <?= Html::hiddenInput('comentario_id', $model->id) ?>
-            <?= Html::button('Votar positivo', ['class'=>'btn btn-xs btn-success']) ?>
-            <?= Html::endForm() ?>
-        </div>
-        <div>
-            <?= Html::beginForm(Url::to(['votos/registrar'])) ?>
-            <?= Html::hiddenInput('votacion', 'false') ?>
-            <?= Html::hiddenInput('comentario_id', $model->id) ?>
-            <?= Html::button('Votar negativo', ['class'=>'btn btn-xs btn-danger']) ?>
-            <?= Html::endForm() ?>
-        </div>
     </div>
 
     <?= Html::a('Comentar', ['comentarios/create', 'pelicula_id' => $model->id], ['class' => 'btn btn-primary']) ?>

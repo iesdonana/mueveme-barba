@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Categorias;
 use app\models\Noticias;
 use app\models\NoticiasSearch;
 use Yii;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -26,6 +28,16 @@ class NoticiasController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['update', 'delete', 'create'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -42,6 +54,7 @@ class NoticiasController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'listaCategorias' => $this->listaCategorias(),
         ]);
     }
 
@@ -58,6 +71,7 @@ class NoticiasController extends Controller
         ]);
     }
 
+
     /**
      * Creates a new Noticias model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -68,8 +82,10 @@ class NoticiasController extends Controller
         $model = new Noticias();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Error.');
             return $this->redirect(['view', 'id' => $model->id]);
         }
+
 
         return $this->render('create', [
             'model' => $model,
@@ -93,6 +109,7 @@ class NoticiasController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'listaCategorias' => $this->listaCategorias(),
         ]);
     }
 
@@ -124,5 +141,24 @@ class NoticiasController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    protected function listaCategorias()
+    {
+        return Categorias::find()
+            ->select('categoria')
+            ->indexBy('id')
+            ->column();
+    }
+
+    public function actionMenear($usuario_id, $noticia_id, $contador)
+    {
+        $model = new Movimientos(['usuario_id' => $usuario_id, 'noticia_id' => $noticia_id]);
+        if (Yii::$app->request->isAjax) {
+            if ($model->save()) {
+                \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return ++$contador;
+            }
+        }
     }
 }

@@ -2,12 +2,14 @@
 
 namespace app\controllers;
 
-use Yii;
 use app\models\Comentarios;
 use app\models\ComentariosSearch;
+use app\models\Noticias;
+use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * ComentariosController implements the CRUD actions for Comentarios model.
@@ -24,6 +26,16 @@ class ComentariosController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
@@ -46,7 +58,7 @@ class ComentariosController extends Controller
 
     /**
      * Displays a single Comentarios model.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -57,12 +69,31 @@ class ComentariosController extends Controller
         ]);
     }
 
+    public function actionVer($id)
+    {
+        $model = Noticias::findOne($id);
+
+        $searchModel = new ComentariosSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query
+        ->joinWith('usuario')
+        ->where(['noticia_id' => $id]);
+
+        return $this->render('ver', [
+            'model' => $model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Creates a new Comentarios model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
+     * @param null|mixed $pelicula_id
+     * @param null|mixed $padre_id
      */
-    public function actionCreate()
+    public function actionCreate($pelicula_id, $padre_id = null)
     {
         $model = new Comentarios();
 
@@ -72,13 +103,15 @@ class ComentariosController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'pelicula_id' => $pelicula_id,
+            'padre_id' => $padre_id,
         ]);
     }
 
     /**
      * Updates an existing Comentarios model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -98,7 +131,7 @@ class ComentariosController extends Controller
     /**
      * Deletes an existing Comentarios model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -112,7 +145,7 @@ class ComentariosController extends Controller
     /**
      * Finds the Comentarios model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return Comentarios the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

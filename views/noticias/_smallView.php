@@ -21,15 +21,14 @@ use yii\helpers\Html;
     </small><br>
 
     <?= Html::encode($model->cuerpo) ?>
-
-    <div class="row">
+    <button id="mueveme" ype="submit" name="button" class='btn btn-info' data-noticia="<?= $model->id ?>">Muévelo (<?=$model->movimiento?> meneos)</button>
         <?= Html::a('Comentarios',
-                ['noticias/view', 'id' => $model->id],
+                ['comentarios/ver','id'=> $model->id],
                 ['class' => 'btn btn-primary']) ?>
+
         <?= Html::a(Html::encode($model->categoria->categoria),
                 ['noticias/index', 'NoticiasSearch[categoria_id]' => $model->categoria_id],
                 ['class' => 'btn btn-primary'])
          ?>
     </div>
-
 </div>

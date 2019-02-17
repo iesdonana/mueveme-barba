@@ -7,6 +7,7 @@ use app\models\NoticiasSearch;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\web\MethodNotAllowedHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
@@ -151,7 +152,8 @@ class NoticiasController extends Controller
     {
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return Yii::$app->request->post('movimientos') + 1;
+            return Yii::$app->request->get('movimientos') + 1;
         }
+        throw new MethodNotAllowedHttpException('Debe ser AJAX');
     }
 }

@@ -32,10 +32,10 @@ use yii\helpers\Url;
     $('#mueveme').click(function() {
         $.ajax({
             url: '$url',
-            method: 'GET',
+            method: 'POST',
             data: { movimientos: '$meneos' },
             success: function (data, status, xhr) {
-                $('#meneos').html(data);
+                 $('#meneillos').html(data);
             }
         });
     });
@@ -43,8 +43,8 @@ EOF;
 $this->registerJs($js); ?>
 
     <div class="row">
-        <?= Html::button($content = 'Meneos',['class'=> 'btn btn-primary', 'id' => 'mueveme']) ?>
-        <?= Html::label($content=$model->movimiento, ['id'=> 'meneos']) ?>
+        <?= Html::button('Meneos ',['class'=> 'btn btn-primary', 'id' => 'mueveme']) ?>
+        <label id="meneillos"><?= $meneos?></label>
         <?= Html::a('Comentarios',
                 ['comentarios/ver','id'=> $model->id],
                 ['class' => 'btn btn-primary']) ?>

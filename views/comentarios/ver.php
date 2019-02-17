@@ -36,18 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::beginForm(Url::to(['votos/registrar'])) ?>
             <?= Html::hiddenInput('votacion', 'true') ?>
             <?= Html::hiddenInput('comentario_id', $model->id) ?>
-            <button class='btn btn-xs btn-success' type="submit">
-                <!-- <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  -->
-            </button>
+            <?= Html::button('Votar positivo', ['class'=>'btn btn-xs btn-success']) ?>
             <?= Html::endForm() ?>
         </div>
         <div>
             <?= Html::beginForm(Url::to(['votos/registrar'])) ?>
             <?= Html::hiddenInput('votacion', 'false') ?>
             <?= Html::hiddenInput('comentario_id', $model->id) ?>
-            <button class='btn btn-xs btn-danger' type="submit" >
-                <!-- <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> -->
-            </button>
+            <?= Html::button('Votar negativo', ['class'=>'btn btn-xs btn-danger']) ?>
             <?= Html::endForm() ?>
         </div>
     </div>

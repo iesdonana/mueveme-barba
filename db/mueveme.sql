@@ -11,7 +11,7 @@ CREATE TABLE usuarios
   , email       VARCHAR(255) NOT NULL UNIQUE
   , password    VARCHAR(60)  NOT NULL
   , token       VARCHAR(255) NOT NULL
-  , verificado  BOOL
+  , verificado  CHAR(1)
 );
 
 DROP TABLE IF EXISTS categorias CASCADE;
@@ -67,9 +67,9 @@ ALTER TABLE comentarios ADD CONSTRAINT fk1 FOREIGN KEY (padre_id) REFERENCES com
 
 
 INSERT INTO usuarios (nombre, email, password, token, verificado)
-VALUES ('admin', 'joseluis.castillo@iesdonana.org', crypt('admin', gen_salt('bf', 10)), 'si', TRUE)
-     , ('demo', 'arturo.barba@iesdonana.org', crypt('demo', gen_salt('bf', 10)), 'si', TRUE)
-     , ('pepe', 'francisco.barba@iesdonana.org', crypt('pepe', gen_salt('bf', 10)), 'si', TRUE);
+VALUES ('admin', 'joseluis.castillo@iesdonana.org', crypt('admin', gen_salt('bf', 10)), 'si', 's')
+     , ('demo', 'arturo.barba@iesdonana.org', crypt('demo', gen_salt('bf', 10)), 'si', 's')
+     , ('pepe', 'francisco.barba@iesdonana.org', crypt('pepe', gen_salt('bf', 10)), 'si', 's');
 
 INSERT INTO categorias (categoria)
 VALUES ('Actualidad')

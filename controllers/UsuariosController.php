@@ -135,13 +135,12 @@ class UsuariosController extends Controller
     public function actionVerificar($id, $token)
     {
         $model = $this->findModel($id);
-        if ($model->token == $token) {
-            $model->scenario = Usuarios::SCENARIO_UPDATE;
-            $model->verificado = true;
+        if ($model->token === $token) {
+            $model->verificado = 's';
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Cuenta verificada.');
+                Yii::$app->session->setFlash('success', 'Cuenta verificada, ya puede loguearse.');
             } else {
-                Yii::$app->session->setFlash('error', 'Error en la verificacion de la cuenta.');
+                Yii::$app->session->setFlash('error', 'Error interno, no se ha podido verificar la cuenta.');
             }
         } else {
             Yii::$app->session->setFlash('error', 'Error en la verificacion de la cuenta.');

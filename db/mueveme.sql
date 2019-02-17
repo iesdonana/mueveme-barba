@@ -6,11 +6,12 @@ DROP TABLE IF EXISTS usuarios CASCADE;
 
 CREATE TABLE usuarios
 (
-    id       BIGSERIAL    PRIMARY KEY
-  , nombre   VARCHAR(32)  NOT NULL UNIQUE
-  , email    VARCHAR(255) NOT NULL UNIQUE
-  , password VARCHAR(60)  NOT NULL
-  , token    VARCHAR(32)
+    id          BIGSERIAL    PRIMARY KEY
+  , nombre      VARCHAR(32)  NOT NULL UNIQUE
+  , email       VARCHAR(255) NOT NULL UNIQUE
+  , password    VARCHAR(60)  NOT NULL
+  , token       VARCHAR(255) NOT NULL
+  , verificado  BOOL
 );
 
 DROP TABLE IF EXISTS categorias CASCADE;
@@ -65,10 +66,10 @@ CREATE TABLE comentarios
 ALTER TABLE comentarios ADD CONSTRAINT fk1 FOREIGN KEY (padre_id) REFERENCES comentarios (id);
 
 
-INSERT INTO usuarios (nombre, email, password)
-VALUES ('admin', 'joseluis.castillo@iesdonana.org', crypt('admin', gen_salt('bf', 10)))
-     , ('demo', 'arturo.barba@iesdonana.org', crypt('demo', gen_salt('bf', 10)))
-     , ('pepe', 'francisco.barba@iesdonana.org', crypt('pepe', gen_salt('bf', 10)));
+INSERT INTO usuarios (nombre, email, password, token, verificado)
+VALUES ('admin', 'joseluis.castillo@iesdonana.org', crypt('admin', gen_salt('bf', 10)), 'si', TRUE)
+     , ('demo', 'arturo.barba@iesdonana.org', crypt('demo', gen_salt('bf', 10)), 'si', TRUE)
+     , ('pepe', 'francisco.barba@iesdonana.org', crypt('pepe', gen_salt('bf', 10)), 'si', TRUE);
 
 INSERT INTO categorias (categoria)
 VALUES ('Actualidad')

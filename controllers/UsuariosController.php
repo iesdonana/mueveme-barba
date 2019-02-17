@@ -6,6 +6,7 @@ use app\models\Usuarios;
 use app\models\UsuariosSearch;
 use Yii;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -64,7 +65,7 @@ class UsuariosController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Usuarios();
+        $model = new Usuarios(['scenario' => Usuarios::SCENARIO_CREATE]);
         $model->setToken();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -110,6 +111,44 @@ class UsuariosController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionEmail($model)
+    {
+        $url = Url::to([
+            'usuarios/verificar',
+            'id' => $model->id,
+            'token' => $model->token,
+        ], true);
+        if (Yii::$app->mailer->compose()
+        ->setFrom('BBCphp@gmail.com')
+        ->setTo($model->email)
+        ->setSubject('Mueveme')
+        ->setTextBody("Verifique su correo: $url")
+        // ->setHtmlBody('<h1>Esto es una prueba</h1>')
+        ->send()) {
+            Yii::$app->session->setFlash('success', 'Se ha enviado un correo a su cuenta de email, por favor verifique su cuenta.');
+        } else {
+            Yii::$app->session->setFlash('error', 'Ha habido un error al mandar el correo.');
+        }
+        return $this->redirect(['index']);
+    }
+
+    public function actionVerificar($id, $token)
+    {
+        $model = $this->findModel($id);
+        if ($model->token == $token) {
+            $model->scenario = Usuarios::SCENARIO_UPDATE;
+            $model->verificado = true;
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Cuenta verificada.');
+            } else {
+                Yii::$app->session->setFlash('error', 'Error en la verificacion de la cuenta.');
+            }
+        } else {
+            Yii::$app->session->setFlash('error', 'Error en la verificacion de la cuenta.');
+        }
+        return $this->redirect(['index']);
+    }
+
     /**
      * Finds the Usuarios model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -124,23 +163,5 @@ class UsuariosController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-    public function actionEmail($model)
-    {
-        $url = Url::to(['usuarios/verificar',
-        ['id' => $model->id, 'token' => $model->token], ]);
-        if (Yii::$app->mailer->compose('home-link')
-        ->setFrom('BBCphp@gmail.com')
-        ->setTo($model->email)
-        ->setSubject('Mueveme')
-        ->setTextBody("Verifique su correo: $url")
-        // ->setHtmlBody('<h1>Esto es una prueba</h1>')
-        ->send()) {
-            Yii::$app->session->setFlash('success', 'Se ha enviado correctamente.');
-        } else {
-            Yii::$app->session->setFlash('error', 'Ha habido un error al mandar el correo.');
-        }
-        return $this->redirect(['index']);
     }
 }

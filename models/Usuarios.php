@@ -20,8 +20,8 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
 {
     const SCENARIO_CREATE = 'create';
     const SCENARIO_UPDATE = 'update';
+
     public $password_repeat;
-    public $token;
 
     /**
      * {@inheritdoc}
@@ -37,10 +37,13 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['nombre', 'email', 'password'], 'required'],
-            [['nombre, token'], 'string', 'max' => 32],
-            [['email'], 'string', 'max' => 255],
+            [['nombre'], 'required'],
+            [['email', 'password', 'password_repeat'], 'required', 'on' => [self::SCENARIO_CREATE]],
+            [['password'], 'compare', 'on' => [self::SCENARIO_CREATE, self::SCENARIO_UPDATE]],
+            [['nombre'], 'string', 'max' => 32],
+            [['email', 'token'], 'string', 'max' => 255],
             [['password'], 'string', 'max' => 60],
+            [['verificado'], 'required', 'on' => [self::SCENARIO_UPDATE]],
             [['email'], 'unique'],
             [['nombre'], 'unique'],
         ];
@@ -130,6 +133,7 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return Yii::$app->security->validatePassword($password, $this->password);
     }
+
     public function beforeSave($insert)
     {
         if (!parent::beforeSave($insert)) {

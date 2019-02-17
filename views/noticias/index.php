@@ -9,7 +9,10 @@ use yii\widgets\ListView;
 ?>
 <div class="noticias-index">
 
-    <?= $this->render('_search', ['model' => $searchModel]); ?>
+    <?= $this->render('_search', [
+        'model' => $searchModel,
+        'listaCategorias' => $listaCategorias,
+    ]); ?>
 
     <p>
         <?= Html::a('Create Noticias', ['create'], ['class' => 'btn btn-success']) ?>

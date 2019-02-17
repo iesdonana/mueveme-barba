@@ -54,6 +54,7 @@ class NoticiasController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'listaCategorias' => $this->listaCategorias(),
         ]);
     }
 
@@ -88,7 +89,6 @@ class NoticiasController extends Controller
 
         return $this->render('create', [
             'model' => $model,
-            'listaCategorias' => $this->listaCategorias(),
         ]);
     }
 

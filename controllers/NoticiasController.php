@@ -147,11 +147,15 @@ class NoticiasController extends Controller
         ]);
     }
 
-    public function actionMovimientos()
+    public function actionMovimientos($id)
     {
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return Yii::$app->request->post('movimientos') + 1;
+            $model = Noticias::findOne($id);
+            $model->movimiento += 1;
+            if ($model->save()) {
+                return $model->movimiento;
+            }
         }
     }
 }

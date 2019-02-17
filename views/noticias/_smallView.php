@@ -29,22 +29,23 @@ use yii\helpers\Url;
     $meneos = $model->movimiento;
     $url = Url::to(['noticias/movimientos']);
     $js = <<<EOF
-    $('#mueveme').click(function() {
+    $('button[noticia-id]').on('click', function() {
+        var button = $(this);
         $.ajax({
             url: '$url',
             method: 'GET',
-            data: { movimientos: '$meneos' },
+            data: { id: $(this).attr('noticia-id') },
             success: function (data, status, xhr) {
-                $('#meneos').html(data);
+                button.next().html(data);
             }
         });
     });
 EOF;
 $this->registerJs($js); ?>
 
-    <div class="row">
-        <?= Html::button($content = 'Meneos',['class'=> 'btn btn-primary', 'id' => 'mueveme']) ?>
-        <?= Html::label($content=$model->movimiento, ['id'=> 'meneos']) ?>
+    <div class="col">
+        <?= Html::button('Meneos' ,['class'=> 'btn btn-primary', 'noticia-id' => $model->id]) ?>
+        <?= Html::label($model->movimiento) ?>
         <?= Html::a('Comentarios',
                 ['comentarios/ver','id'=> $model->id],
                 ['class' => 'btn btn-primary']) ?>

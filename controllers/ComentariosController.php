@@ -78,6 +78,7 @@ class ComentariosController extends Controller
         $dataProvider->query
         ->joinWith('usuario')
         ->where(['noticia_id' => $id]);
+        //$comentarios = self:find()->where(['noticia_id' => $model->id])
 
         return $this->render('ver', [
             'model' => $model,

@@ -1,6 +1,12 @@
 <?php
-
+use app\helpers\BuscaImagen;
+use app\helpers\DomainExtractor;
+use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use yii\helpers\Url;
+use app\models\Movimientos;
+use app\models\Comentarios;
+use yii\web\View;
 use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
@@ -23,6 +29,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $this->render('_smallView', ['model' => $model]);
             },
         ]) ?>
+    </div>
+
+    <div class="row votos">
+        <div class="col-md-1">
+            <?= Html::beginForm(Url::to(['votos/registrar'])) ?>
+            <?= Html::hiddenInput('votacion', 'true') ?>
+            <?= Html::hiddenInput('comentario_id', $model->id) ?>
+            <button class='btn btn-xs btn-success' type="submit">
+                <!-- <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  -->
+            </button>
+            <?= Html::endForm() ?>
+        </div>
+        <div>
+            <?= Html::beginForm(Url::to(['votos/registrar'])) ?>
+            <?= Html::hiddenInput('votacion', 'false') ?>
+            <?= Html::hiddenInput('comentario_id', $model->id) ?>
+            <button class='btn btn-xs btn-danger' type="submit" >
+                <!-- <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> -->
+            </button>
+            <?= Html::endForm() ?>
+        </div>
     </div>
 
     <?= Html::a('Comentar', ['comentarios/create', 'pelicula_id' => $model->id], ['class' => 'btn btn-primary']) ?>

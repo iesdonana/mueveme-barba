@@ -150,4 +150,15 @@ class NoticiasController extends Controller
             ->indexBy('id')
             ->column();
     }
+
+    public function actionMenear($usuario_id, $noticia_id, $contador)
+    {
+        $model = new Movimientos(['usuario_id' => $usuario_id, 'noticia_id' => $noticia_id]);
+        if (Yii::$app->request->isAjax) {
+            if ($model->save()) {
+                \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return ++$contador;
+            }
+        }
+    }
 }

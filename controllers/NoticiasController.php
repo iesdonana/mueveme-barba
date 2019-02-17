@@ -8,6 +8,7 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 /**
  * NoticiasController implements the CRUD actions for Noticias model.
@@ -125,5 +126,32 @@ class NoticiasController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionAjax()
+    {
+        return $this->render('ajax');
+    }
+
+    public function actionEjemplo($id)
+    {
+        $searchModel = new NoticiasSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->where(['id' => $id]);
+        $noticias = Noticias::findOne($id);
+        return $this->render('ver', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'model' => $noticias,
+            'movimiento' => $noticias->movimiento,
+        ]);
+    }
+
+    public function actionMovimientos()
+    {
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return Yii::$app->request->post('movimientos') + 1;
+        }
     }
 }

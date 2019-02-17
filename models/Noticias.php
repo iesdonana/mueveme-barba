@@ -83,6 +83,14 @@ class Noticias extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getMovimiento()
+    {
+        return $this->hasMany(Movimientos::className(), ['noticia_id' => 'id'])->inverseOf('noticia');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getUsuario()
     {
         return $this->hasOne(Usuarios::className(), ['id' => 'usuario_id'])->inverseOf('noticias');

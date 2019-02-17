@@ -22,4 +22,5 @@ use yii\widgets\ListView;
             return $this->render('_smallView', ['model' => $model]);
         },
     ]) ?>
+    
 </div>

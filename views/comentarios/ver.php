@@ -24,4 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
             },
         ]) ?>
     </div>
+
+    <?= Html::a('Comentar', ['comentarios/create', 'pelicula_id' => $model->id], ['class' => 'btn btn-primary']) ?>
 </div>

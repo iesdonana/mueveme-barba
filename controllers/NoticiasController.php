@@ -152,7 +152,11 @@ class NoticiasController extends Controller
     {
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return Yii::$app->request->get('movimientos') + 1;
+            $model = Noticias::findOne(Yii::$app->request->post('id'));
+            $model->movimiento++;
+            if ($model->save()) {
+                return $model->movimiento;
+            }
         }
         throw new MethodNotAllowedHttpException('Debe ser AJAX');
     }

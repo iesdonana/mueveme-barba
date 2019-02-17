@@ -30,6 +30,7 @@ $formatter = \Yii::$app->formatter;
                 por <?= Html::a(Html::encode($model->usuario->nombre),
                 ['usuarios/view', 'id' => $model->usuario_id]) ?> -----
                 Creado a <?= $formatter->asTime($model->created_at, 'short') ?> <?= $formatter->asRelativeTime($model->created_at, new DateTime()) ?>
+                <?= Html::a('Responder', ['comentarios/create', 'pelicula_id' => $model->noticia_id, 'padre_id' => $model->id], ['class' => 'btn btn-primary']) ?>
             </small>
         </div>
     </div>

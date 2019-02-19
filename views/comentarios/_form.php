@@ -10,7 +10,13 @@ use yii\widgets\ActiveForm;
 
 <div class="comentarios-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php
+    if (isset($action)) {
+        $form = ActiveForm::begin(['action' => $action]);
+    } else {
+        $form = ActiveForm::begin();
+    }
+    ?>
 
     <?= $form->field($model, 'cuerpo')->textarea(['rows' => 6]) ?>
 

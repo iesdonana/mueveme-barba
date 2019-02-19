@@ -1,14 +1,5 @@
 <?php
-use app\helpers\BuscaImagen;
-use app\helpers\DomainExtractor;
-use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-use yii\helpers\Url;
-use app\models\Movimientos;
-use app\models\Comentarios;
-use yii\web\View;
-use yii\widgets\ListView;
-
 $formatter = \Yii::$app->formatter;
 ?>
 <style media="screen">

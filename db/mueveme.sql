@@ -73,7 +73,7 @@ CREATE TABLE votos
                               REFERENCES comentarios(id)
                               ON DELETE CASCADE
                               ON UPDATE CASCADE
-    , votacion      BOOL      NOT NULL
+    , votacion      INT
     , UNIQUE(usuario_id, comentario_id)
 );
 

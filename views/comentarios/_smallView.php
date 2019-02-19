@@ -1,5 +1,9 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
+use app\models\Comentarios;
+use yii\bootstrap\Modal;
+
 $formatter = \Yii::$app->formatter;
 ?>
 <style media="screen">
@@ -30,7 +34,31 @@ $formatter = \Yii::$app->formatter;
                 por <?= Html::a(Html::encode($model->usuario->nombre),
                 ['usuarios/view', 'id' => $model->usuario_id]) ?> -----
                 Creado a <?= $formatter->asTime($model->created_at, 'short') ?> <?= $formatter->asRelativeTime($model->created_at, new DateTime()) ?>
-                <?= Html::a('Responder', ['comentarios/create', 'pelicula_id' => $model->noticia_id, 'padre_id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                <?php
+                if (!Yii::$app->user->isGuest){
+                    Modal::begin([
+                        'header' => '<h2>Responder al comentario.</h2>',
+                        'toggleButton' => ['label' => 'Responder'],
+                    ]);
+
+
+                    $comentario = new Comentarios();
+                    $comentario->noticia_id = $model->noticia_id;
+                    $comentario->padre_id = $model->id;
+
+
+                    echo $this->render('_form', [
+                        'model' => $comentario,
+                        'action' => Url::to([
+                            'comentarios/create',
+                            'noticia_id' => $model->noticia_id,
+                            'padre_id' => $model->padre_id,
+                        ])
+                    ]);
+
+                    Modal::end();
+                }
+                ?>
             </small>
         </div>
     </div>

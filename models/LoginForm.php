@@ -44,9 +44,10 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-
+            if ($user->verificado !== 's') {
+                $this->addError($attribute, 'Usuario no verificado.');
+            }
             if (!$user || !$user->validatePassword($this->password)) {
-                echo var_dump($user);
                 $this->addError($attribute, 'Incorrect username or password.');
             }
         }

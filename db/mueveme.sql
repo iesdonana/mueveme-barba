@@ -6,9 +6,12 @@ DROP TABLE IF EXISTS usuarios CASCADE;
 
 CREATE TABLE usuarios
 (
-    id       BIGSERIAL   PRIMARY KEY
-  , nombre   VARCHAR(32) NOT NULL UNIQUE
-  , password VARCHAR(60) NOT NULL
+    id          BIGSERIAL    PRIMARY KEY
+  , nombre      VARCHAR(32)  NOT NULL UNIQUE
+  , email       VARCHAR(255) NOT NULL UNIQUE
+  , password    VARCHAR(60)  NOT NULL
+  , token       VARCHAR(255) NOT NULL
+  , verificado  CHAR(1)
 );
 
 DROP TABLE IF EXISTS categorias CASCADE;
@@ -93,10 +96,10 @@ CREATE TABLE movimientos
     , PRIMARY KEY(usuario_id, noticia_id)
 );
 
-INSERT INTO usuarios (nombre, password)
-VALUES ('admin', crypt('admin', gen_salt('bf', 10)))
-     , ('demo', crypt('demo', gen_salt('bf', 10)))
-     , ('pepe', crypt('pepe', gen_salt('bf', 10)));
+INSERT INTO usuarios (nombre, email, password, token, verificado)
+VALUES ('admin', 'joseluis.castillo@iesdonana.org', crypt('admin', gen_salt('bf', 10)), 'si', 's')
+     , ('demo', 'arturo.barba@iesdonana.org', crypt('demo', gen_salt('bf', 10)), 'si', 's')
+     , ('pepe', 'francisco.barba@iesdonana.org', crypt('pepe', gen_salt('bf', 10)), 'si', 's');
 
 INSERT INTO categorias (categoria)
 VALUES ('Actualidad')

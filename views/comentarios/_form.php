@@ -10,23 +10,25 @@ use yii\widgets\ActiveForm;
 
 <div class="comentarios-form">
 
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?php $form = ActiveForm::begin(); ?>
+    <?php
+    if (isset($action)) {
+        $form = ActiveForm::begin(['action' => $action]);
+    } else {
+        $form = ActiveForm::begin();
+    }
+    ?>
 
     <?= $form->field($model, 'cuerpo')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'padre_id')->hiddenInput(['value' => $padre_id])->label(false) ?>
+    <?= $form->field($model, 'padre_id')->hiddenInput(['value' => $model->padre_id])->label(false) ?>
 
-    <?= $form->field($model, 'noticia_id')->hiddenInput(['value' => $pelicula_id])->label(false) ?>
+    <?= $form->field($model, 'noticia_id')->hiddenInput(['value' => $model->noticia_id])->label(false) ?>
 
     <?= $form->field($model, 'usuario_id')->hiddenInput(['value' => Yii::$app->user->identity->id])->label(false)  ?>
 
-  <div class="form-group">
-      <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-  </div>
-
-  <?php ActiveForm::end(); ?>
+    <div class="form-group">
+    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div>
 
     <?php ActiveForm::end(); ?>
 

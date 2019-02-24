@@ -18,7 +18,7 @@ class UsuariosSearch extends Usuarios
     {
         return [
             [['id'], 'integer'],
-            [['nombre', 'password'], 'safe'],
+            [['nombre', 'email', 'password'], 'safe'],
         ];
     }
 
@@ -62,6 +62,7 @@ class UsuariosSearch extends Usuarios
         ]);
 
         $query->andFilterWhere(['ilike', 'nombre', $this->nombre])
+            ->andFilterWhere(['ilike', 'email', $this->email])
             ->andFilterWhere(['ilike', 'password', $this->password]);
 
         return $dataProvider;

@@ -10,6 +10,7 @@ use yii\web\IdentityInterface;
  *
  * @property int $id
  * @property string $nombre
+ * @property string $email
  * @property string $password
  *
  * @property Comentarios[] $comentarios
@@ -36,11 +37,15 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['nombre', 'password'], 'required'],
-            [['nombre'], 'string', 'max' => 32],
-            [['nombre'], 'unique'],
-            [['password', 'password_repeat'], 'required', 'on' => [self::SCENARIO_CREATE]],
+            [['nombre'], 'required'],
+            [['email', 'password', 'password_repeat'], 'required', 'on' => [self::SCENARIO_CREATE]],
             [['password'], 'compare', 'on' => [self::SCENARIO_CREATE, self::SCENARIO_UPDATE]],
+            [['nombre'], 'string', 'max' => 32],
+            [['email', 'token'], 'string', 'max' => 255],
+            [['password'], 'string', 'max' => 60],
+            [['verificado'], 'string', 'max' => 1],
+            [['email'], 'unique'],
+            [['nombre'], 'unique'],
         ];
     }
 
@@ -57,6 +62,7 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             'id' => 'ID',
             'nombre' => 'Nombre',
+            'email' => 'Email',
             'password' => 'Password',
         ];
     }
@@ -87,7 +93,6 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return static::findOne($id);
     }
-
     /**
      * Finds an identity by the given token.
      *
@@ -148,5 +153,10 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
             }
         }
         return true;
+    }
+
+    public function setToken()
+    {
+        $this->token = Yii::$app->security->generateRandomString();
     }
 }

@@ -16,21 +16,40 @@ $this->title = $model->titulo;
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<style media="screen">
+    .all-coments li {
+        list-style:none;
+        border: 1px solid white;
+        background-color: #fff5ed;
+    }
+</style>
 <div class="noticias-index">
     <div class="">
         <?= $this->render('../noticias/_smallView', ['model' => $model]) ?>
     </div>
 
-    <div class="">
-        <?= ListView::widget([
-            'dataProvider' => $dataProvider,
-            'itemOptions' => ['class' => 'item'],
-            'itemView' => function ($model, $key, $index, $widget) {
-                return $this->render('_smallView', ['model' => $model //'comentario' => $comentario
-            ]);
-            },
-        ]) ?>
+    <div class="all-coments">
+        <?php
+        pintarComentarios($comentarios, $this);
+
+        function pintarComentarios($comentarios, $vista)
+        {
+        ?>
+        <?php if ($comentarios) : ?>
+            <ul>
+            <?php foreach ($comentarios as $comentario) : ?>
+                <li>
+                    <?= $vista->render('_smallView',[
+                        'model' => $comentario
+                        ]) ?>
+                    <?php pintarComentarios($comentario->comentarios, $vista)?>
+                </li>
+            <?php endforeach ?>
+            </ul>
+        <?php endif;
+        }
+        ?>
     </div>
 
-    <?= Html::a('Comentar', ['comentarios/create', 'pelicula_id' => $model->id], ['class' => 'btn btn-primary']) ?>
+    <?= Html::a('Comentar', ['comentarios/create', 'noticia_id' => $model->id], ['class' => 'btn btn-primary']) ?>
 </div>

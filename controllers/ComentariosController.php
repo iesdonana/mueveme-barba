@@ -72,8 +72,7 @@ class ComentariosController extends Controller
     public function actionVer($id)
     {
         $model = Noticias::findOne($id);
-
-        $searchModel = new ComentariosSearch();
+           $searchModel = new ComentariosSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->query
         ->joinWith('usuario')
@@ -85,6 +84,15 @@ class ComentariosController extends Controller
             'comentario' => $comentarios,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
+        $comentarios = Comentarios::find()
+        ->andWhere(['noticia_id' => $id])
+        ->andWhere(['padre_id' => null])
+        ->all();
+
+        return $this->render('ver', [
+            'model' => $model,
+            'comentarios' => $comentarios,
         ]);
     }
 
@@ -94,19 +102,20 @@ class ComentariosController extends Controller
      * @return mixed
      * @param null|mixed $pelicula_id
      * @param null|mixed $padre_id
+     * @param mixed $noticia_id
      */
-    public function actionCreate($pelicula_id, $padre_id = null)
+    public function actionCreate($noticia_id, $padre_id = null)
     {
         $model = new Comentarios();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['ver', 'id' => $noticia_id]);
         }
+
+        $model->padre_id = $padre_id;
 
         return $this->render('create', [
             'model' => $model,
-            'pelicula_id' => $pelicula_id,
-            'padre_id' => $padre_id,
         ]);
     }
 

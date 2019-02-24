@@ -6,6 +6,7 @@ use app\models\Usuarios;
 use app\models\UsuariosSearch;
 use Yii;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -65,9 +66,10 @@ class UsuariosController extends Controller
     public function actionCreate()
     {
         $model = new Usuarios(['scenario' => Usuarios::SCENARIO_CREATE]);
+        $model->setToken();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->actionEmail($model);
         }
 
         return $this->render('create', [
@@ -85,7 +87,6 @@ class UsuariosController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->scenario = Usuarios::SCENARIO_CREATE;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -107,6 +108,43 @@ class UsuariosController extends Controller
     {
         $this->findModel($id)->delete();
 
+        return $this->redirect(['index']);
+    }
+
+    public function actionEmail($model)
+    {
+        $url = Url::to([
+            'usuarios/verificar',
+            'id' => $model->id,
+            'token' => $model->token,
+        ], true);
+        if (Yii::$app->mailer->compose()
+        ->setFrom('BBCphp@gmail.com')
+        ->setTo($model->email)
+        ->setSubject('Mueveme')
+        ->setTextBody("Verifique su correo: $url")
+        // ->setHtmlBody('<h1>Esto es una prueba</h1>')
+        ->send()) {
+            Yii::$app->session->setFlash('success', 'Se ha enviado un correo a su cuenta de email, por favor verifique su cuenta.');
+        } else {
+            Yii::$app->session->setFlash('error', 'Ha habido un error al mandar el correo.');
+        }
+        return $this->redirect(['index']);
+    }
+
+    public function actionVerificar($id, $token)
+    {
+        $model = $this->findModel($id);
+        if ($model->token === $token) {
+            $model->verificado = 's';
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Cuenta verificada, ya puede loguearse.');
+            } else {
+                Yii::$app->session->setFlash('error', 'Error interno, no se ha podido verificar la cuenta.');
+            }
+        } else {
+            Yii::$app->session->setFlash('error', 'Error en la verificacion de la cuenta.');
+        }
         return $this->redirect(['index']);
     }
 

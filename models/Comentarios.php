@@ -16,11 +16,11 @@ namespace app\models;
  * @property Comentarios[] $comentarios
  * @property Noticias $noticia
  * @property Usuarios $usuario
+ * @property Votos[] $votos
+ * @property Usuarios[] $usuarios
  */
 class Comentarios extends \yii\db\ActiveRecord
 {
-    public $_positivos;
-    public $_negativos;
     /**
      * {@inheritdoc}
      */
@@ -57,8 +57,6 @@ class Comentarios extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'noticia_id' => 'Noticia ID',
             'padre_id' => 'Padre ID',
-            'positivos' => 'Votos positivos',
-            'negativos' => 'Votos negativos',
             'usuario_id' => 'Usuario ID',
         ];
     }
@@ -95,12 +93,19 @@ class Comentarios extends \yii\db\ActiveRecord
         return $this->hasOne(Usuarios::className(), ['id' => 'usuario_id'])->inverseOf('comentarios');
     }
 
-    public function getPositivos()
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getVotos()
     {
-        return $this->_positivos;
+        return $this->hasMany(Votos::className(), ['comentario_id' => 'id'])->inverseOf('comentario');
     }
-    public function getNegativos()
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsuarios()
     {
-        return $this->_negativos;
+        return $this->hasMany(Usuarios::className(), ['id' => 'usuario_id'])->viaTable('votos', ['comentario_id' => 'id']);
     }
 }

@@ -39,40 +39,6 @@ class VotosController extends Controller
          ];
     }
 
-    public function actionRegistrar()
-    {
-        $comentario_id = Yii::$app->request->post('comentario_id');
-        $votacion = filter_var(
-            Yii::$app->request->post('votacion'),
-            FILTER_VALIDATE_BOOLEAN
-        );
-
-        $usuario_id = Yii::$app->user->identity->id;
-
-        $voto = Votos::find()
-            ->where([
-                'comentario_id' => $comentario_id,
-                'usuario_id' => $usuario_id,
-            ])->one();
-
-        if ($voto) {
-            if ($voto->votacion == $votacion) {
-                return $this->redirect(['/noticias/view', 'id' => $voto->comentario->noticia_id]);
-            }
-            $voto->votacion = !$voto->votacion;
-        } else {
-            $voto = new Votos([
-                'comentario_id' => $comentario_id,
-                'usuario_id' => $usuario_id,
-                'votacion' => $votacion,
-            ]);
-        }
-
-        if (!$voto->save()) {
-            Yii::$app->session->setFlash('error', 'No se ha podido registrar su voto');
-        }
-        return $this->redirect(['/noticias/view', 'id' => $voto->comentario->noticia_id]);
-    }
 
     /**
      * Lists all Votos models.
@@ -107,19 +73,40 @@ class VotosController extends Controller
      * Creates a new Votos model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
+     * @param mixed $comentario_id
+     * @param mixed $voto
+     * @param mixed $votacion
      */
-    public function actionCreate()
+    public function actionCreate($comentario_id, $votacion)
     {
-        $model = new Votos();
+        $usuario_id = Yii::$app->user->identity->id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'usuario_id' => $model->usuario_id, 'comentario_id' => $model->comentario_id]);
+        $voto = Votos::find()
+            ->where([
+                'comentario_id' => $comentario_id,
+                'usuario_id' => $usuario_id,
+            ])->one();
+
+        if ($voto) {
+            if ($voto->votacion == $votacion) {
+                Yii::$app->session->setFlash('success', 'Solo puede votar una vez');
+                return $this->redirect(['/comentarios/ver', 'id' => $voto->comentario->noticia_id]);
+            }
+            $voto->votacion = $voto->votacion * -1;
+        } else {
+            $voto = new Votos([
+                'comentario_id' => $comentario_id,
+                'usuario_id' => $usuario_id,
+                'votacion' => $votacion,
+            ]);
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        if (!$voto->save()) {
+            Yii::$app->session->setFlash('error', 'No se ha podido registrar su voto');
+        }
+        return $this->redirect(['/comentarios/ver', 'id' => $voto->comentario->noticia_id]);
     }
+
 
     /**
      * Updates an existing Votos model.

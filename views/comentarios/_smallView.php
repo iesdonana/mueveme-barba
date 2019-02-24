@@ -32,6 +32,9 @@ $formatter = \Yii::$app->formatter;
                 Creado a <?= $formatter->asTime($model->created_at, 'short') ?> <?= $formatter->asRelativeTime($model->created_at, new DateTime()) ?>
                 <?= Html::a('Responder', ['comentarios/create', 'pelicula_id' => $model->noticia_id, 'padre_id' => $model->id], ['class' => 'btn btn-primary']) ?>
             </small>
+            <?= Html::a('Like', ['votos/create', 'comentario_id'=>$model->id, 'votacion'=>'1'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Dislike', ['votos/create', 'comentario_id'=>$model->id, 'votacion'=>'-1'], ['class' => 'btn btn-danger']) ?>
+            <!-- //Yii::$app->user->identity->id] -->
         </div>
     </div>
 </div>

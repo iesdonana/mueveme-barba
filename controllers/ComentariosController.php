@@ -72,6 +72,18 @@ class ComentariosController extends Controller
     public function actionVer($id)
     {
         $model = Noticias::findOne($id);
+           $searchModel = new ComentariosSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query
+        ->joinWith('usuario')
+        ->where(['noticia_id' => $id]);
+        $comentarios = Comentarios::find()->where(['noticia_id' => $model->id])->one();
+
+        return $this->render('ver', [
+            'model' => $model,
+            'comentario' => $comentarios,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
 
         $comentarios = Comentarios::find()
         ->andWhere(['noticia_id' => $id])
@@ -126,6 +138,7 @@ class ComentariosController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Deletes an existing Comentarios model.

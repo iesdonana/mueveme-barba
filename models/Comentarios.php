@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "comentarios".
  *
@@ -18,6 +16,8 @@ use Yii;
  * @property Comentarios[] $comentarios
  * @property Noticias $noticia
  * @property Usuarios $usuario
+ * @property Votos[] $votos
+ * @property Usuarios[] $usuarios
  */
 class Comentarios extends \yii\db\ActiveRecord
 {
@@ -40,7 +40,7 @@ class Comentarios extends \yii\db\ActiveRecord
             [['noticia_id', 'usuario_id'], 'required'],
             [['noticia_id', 'padre_id', 'usuario_id'], 'default', 'value' => null],
             [['noticia_id', 'padre_id', 'usuario_id'], 'integer'],
-            [['padre_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comentarios::className(), 'targetAttribute' => ['padre_id' => 'id']],
+            [['padre_id'], 'exist', 'skipOnError' => true, 'targetClass' => self::className(), 'targetAttribute' => ['padre_id' => 'id']],
             [['noticia_id'], 'exist', 'skipOnError' => true, 'targetClass' => Noticias::className(), 'targetAttribute' => ['noticia_id' => 'id']],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuarios::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
@@ -66,7 +66,7 @@ class Comentarios extends \yii\db\ActiveRecord
      */
     public function getPadre()
     {
-        return $this->hasOne(Comentarios::className(), ['id' => 'padre_id'])->inverseOf('comentarios');
+        return $this->hasOne(self::className(), ['id' => 'padre_id'])->inverseOf('comentarios');
     }
 
     /**
@@ -74,7 +74,7 @@ class Comentarios extends \yii\db\ActiveRecord
      */
     public function getComentarios()
     {
-        return $this->hasMany(Comentarios::className(), ['padre_id' => 'id'])->inverseOf('padre');
+        return $this->hasMany(self::className(), ['padre_id' => 'id'])->inverseOf('padre');
     }
 
     /**
@@ -91,5 +91,21 @@ class Comentarios extends \yii\db\ActiveRecord
     public function getUsuario()
     {
         return $this->hasOne(Usuarios::className(), ['id' => 'usuario_id'])->inverseOf('comentarios');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getVotos()
+    {
+        return $this->hasMany(Votos::className(), ['comentario_id' => 'id'])->inverseOf('comentario');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsuarios()
+    {
+        return $this->hasMany(Usuarios::className(), ['id' => 'usuario_id'])->viaTable('votos', ['comentario_id' => 'id']);
     }
 }

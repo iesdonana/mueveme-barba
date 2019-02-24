@@ -60,6 +60,9 @@ $formatter = \Yii::$app->formatter;
                 }
                 ?>
             </small>
+            <?= Html::a('Like', ['votos/create', 'comentario_id'=>$model->id, 'votacion'=>'1'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Dislike', ['votos/create', 'comentario_id'=>$model->id, 'votacion'=>'-1'], ['class' => 'btn btn-danger']) ?>
+            <!-- //Yii::$app->user->identity->id] -->
         </div>
     </div>
 </div>

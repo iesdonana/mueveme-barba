@@ -163,4 +163,15 @@ class UsuariosController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionBanear($id)
+    {
+        $usuario = $this->findModel($id);
+        $usuario->banned_at = empty($usuario->banned_at) ?
+           (new \DateTime())
+               ->add(new \DateInterval('P2D'))
+               ->format('Y-m-d H:i:s') : null;
+        $usuario->save();
+        return $this->redirect(['usuarios/index']);
+    }
 }

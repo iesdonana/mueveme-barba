@@ -60,6 +60,16 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
+            $user = $this->getUsuarios();
+            if ($user->banned_at !== null) {
+                if ((new \DateTime()) > \DateTime::createFromFormat('Y-m-d H:i:s', $user->banned_at)) {
+                    $user->banned_at = null;
+                    $user->save(false);
+                } else {
+                    Yii::$app->session->setFlash('error', 'El usuario está baneado.');
+                    return false;
+                }
+            }
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         return false;

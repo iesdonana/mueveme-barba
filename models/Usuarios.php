@@ -22,6 +22,7 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     const SCENARIO_UPDATE = 'update';
 
     public $password_repeat;
+    private $_baneado;
 
     /**
      * {@inheritdoc}
@@ -158,5 +159,14 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     public function setToken()
     {
         $this->token = Yii::$app->security->generateRandomString();
+    }
+
+    public function getBaneado()
+    {
+        return $this->_baneado;
+    }
+    public function afterFind()
+    {
+        $this->_baneado = !empty($this->banned_at);
     }
 }

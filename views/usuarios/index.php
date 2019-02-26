@@ -28,9 +28,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'nombre',
             'email:email',
-            'password',
+            // 'created_at:datetime',
+            'baneado:boolean',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete} {ban}',
+                'buttons' => [
+                    'ban' => function ($url, $model, $key) {
+                        return Html::a(
+                            'Banear',
+                            ['usuarios/banear', 'id' => $model->id],
+                            [
+                                'data-method' => 'POST',
+                                'data-confirm' => '¿Seguro que desea banear a ese usuario?'
+                            ]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 </div>

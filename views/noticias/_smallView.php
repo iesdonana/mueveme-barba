@@ -1,5 +1,25 @@
 <?php
+use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+$formatter = Yii::$app->formatter;
+$url = Url::to(['noticias/menear']);
+$js = <<<EOT
+    $('.boton').click(function (event) {
+        var el = $(this);
+        var id = el.data('key');
+        $.ajax({
+            url: '$url',
+            data: { id: id },
+            success: function (data) {
+                $('#boton-' + id).text(`Mover (` + data +` movimientos)`);
+                el.attr('disabled', true);
+            }
+        });
+    });
+EOT;
+$this->registerJs($js);
 ?>
 
 <div class="noticias-view">
@@ -21,8 +41,9 @@ use yii\helpers\Html;
     </small><br>
 
     <?= Html::encode($model->cuerpo) ?>
-    <button id="mueveme" ype="submit" name="button" class='btn btn-info' data-noticia="<?= $model->id ?>">Muévelo (<?=$model->movimiento?> meneos)</button>
-        <?= Html::a('Comentarios',
+    <div class="media-left text-center">
+        <?= Html::button('Mover (' .Html::encode($model->movimiento) . ' movimientos)', ['class' => 'btn-primary boton boton', 'id' => 'boton-' . $model->id, 'data-key' => $model->id]) ?>
+           <?= Html::a('Comentarios',
                 ['comentarios/ver','id'=> $model->id],
                 ['class' => 'btn btn-primary']) ?>
 

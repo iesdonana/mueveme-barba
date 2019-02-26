@@ -10,6 +10,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 /**
  * NoticiasController implements the CRUD actions for Noticias model.
@@ -151,14 +152,12 @@ class NoticiasController extends Controller
             ->column();
     }
 
-    public function actionMenear($usuario_id, $noticia_id, $contador)
+    public function actionMenear($id)
     {
-        $model = new Movimientos(['usuario_id' => $usuario_id, 'noticia_id' => $noticia_id]);
-        if (Yii::$app->request->isAjax) {
-            if ($model->save()) {
-                \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-                return ++$contador;
-            }
-        }
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $noticia = $this->findModel($id);
+        $noticia->movimiento++;
+        $noticia->save();
+        return $noticia->movimiento;
     }
 }

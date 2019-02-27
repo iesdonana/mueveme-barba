@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 $formatter = Yii::$app->formatter;
-$url = Url::to(['noticias/menear']);
+$url = Url::to(['movimientos/create']);
 $js = <<<EOT
     $('.boton').click(function (event) {
         var el = $(this);

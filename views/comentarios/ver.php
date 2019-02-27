@@ -50,7 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
         }
         ?>
     </div>
-    <?php echo $model->id ?>
 
     <?= Html::a('Comentar', ['comentarios/create', 'noticia_id' => $model->id], ['class' => 'btn btn-primary']) ?>
 </div>

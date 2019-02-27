@@ -101,6 +101,7 @@ class ComentariosController extends Controller
             return $this->redirect(['ver', 'id' => $noticia_id]);
         }
 
+        $model->noticia_id = $noticia_id;
         $model->padre_id = $padre_id;
 
         return $this->render('create', [

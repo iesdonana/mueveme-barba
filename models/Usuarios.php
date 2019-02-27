@@ -169,4 +169,14 @@ class Usuarios extends \yii\db\ActiveRecord implements IdentityInterface
     {
         $this->_baneado = !empty($this->banned_at);
     }
+
+    public function desbaneable()
+    {
+        return (new \DateTime()) > \DateTime::createFromFormat('Y-m-d H:i:s', $this->banned_at);
+    }
+    public function desbanear()
+    {
+        $this->banned_at = null;
+        return $this->save();
+    }
 }

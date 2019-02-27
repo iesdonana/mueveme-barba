@@ -7,6 +7,7 @@ use yii\helpers\Html;
 $this->title = 'Comentar una noticia';
 //$this->params['breadcrumbs'][] = ['label' => '', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+$model->noticia_id = 1;
 ?>
 <div class="comentarios-create">
 

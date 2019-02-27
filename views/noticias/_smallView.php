@@ -41,6 +41,12 @@ $this->registerJs($js);
     </small><br>
 
     <?= Html::encode($model->cuerpo) ?>
+    <?php if ($model->tieneImagen()): ?>
+            <div class="media-right">
+                <?php echo "aaaa";//Html::img($model->imagen)
+                ?>
+            </div>
+        <?php endif ?>
     <div class="media-left text-center">
         <?= Html::button('Mover (' .Html::encode($model->movimiento) . ' movimientos)', ['class' => 'btn-primary boton boton', 'id' => 'boton-' . $model->id, 'data-key' => $model->id]) ?>
            <?= Html::a('Comentarios',

@@ -13,14 +13,15 @@ use yii\helpers\Url;
 
 <div class="noticias-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['class' => 'form-horizontal'],
+    ]); ?>
 
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'noticia')->textInput(['maxlength' => true])->label('Link') ?>
 
     <?= $form->field($model, 'cuerpo')->textarea(['rows' => 6]) ?>
-
     <?php // echo $form->field($model, 'created_at')->textInput() ?>
 
     <?php // echo $form->field($model, 'movimiento')->textInput() ?>
@@ -47,6 +48,8 @@ use yii\helpers\Url;
     ])
     ->label('Categoria')
     ?>
+    <?= $form->field($model, 'imagen')->fileInput(['class' => ['btn-info']]) ?>
+
 
 
     <?= $form->field($model, 'usuario_id')->hiddenInput(['value' => Yii::$app->user->identity->id])->label(false) ?>

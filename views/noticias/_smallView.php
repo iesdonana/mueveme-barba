@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 $formatter = Yii::$app->formatter;
-$url = Url::to(['movimientos/create']);
+$url = Url::to(['noticias/menear']);
 $js = <<<EOT
     $('.boton').click(function (event) {
         var el = $(this);
@@ -43,8 +43,7 @@ $this->registerJs($js);
     <?= Html::encode($model->cuerpo) ?>
     <?php if ($model->tieneImagen()): ?>
             <div class="media-right">
-                <?php echo "aaaa";//Html::img($model->imagen)
-                ?>
+                <?=Html::img($model->imagen)?>
             </div>
         <?php endif ?>
     <div class="media-left text-center">

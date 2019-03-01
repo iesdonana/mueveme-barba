@@ -8,9 +8,11 @@ use app\models\NoticiasSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\imagine\Image;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
+use yii\web\UploadedFile;
 
 /**
  * NoticiasController implements the CRUD actions for Noticias model.
@@ -83,7 +85,12 @@ class NoticiasController extends Controller
         $model = new Noticias();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Error.');
+            if ($model->imagen) {
+                $file = 'uploads/' . $model->id . '.jpg';
+                $model->imagen = UploadedFile::getInstance($model, 'imagen');
+                $model->imagen->saveAs($file);
+                Image::resize($file, 100, null)->save($file);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

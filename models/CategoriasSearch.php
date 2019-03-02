@@ -4,7 +4,6 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Categorias;
 
 /**
  * CategoriasSearch represents the model behind the search form of `app\models\Categorias`.
@@ -19,6 +18,7 @@ class CategoriasSearch extends Categorias
         return [
             [['id'], 'integer'],
             [['categoria'], 'safe'],
+            [['numNoticias'], 'safe'],
         ];
     }
 
@@ -32,7 +32,7 @@ class CategoriasSearch extends Categorias
     }
 
     /**
-     * Creates data provider instance with search query applied
+     * Creates data provider instance with search query applied.
      *
      * @param array $params
      *
@@ -40,7 +40,10 @@ class CategoriasSearch extends Categorias
      */
     public function search($params)
     {
-        $query = Categorias::find();
+        $query = Categorias::find()
+            ->select('categorias.*, count(noticias.id) AS numNoticias')
+            ->joinWith('noticias')
+            ->groupBy('categorias.id');
 
         // add conditions that should always apply here
 
@@ -59,6 +62,10 @@ class CategoriasSearch extends Categorias
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+        ]);
+
+        $query->andFilterHaving([
+            'count(noticias.id)' => $this->numNoticias,
         ]);
 
         $query->andFilterWhere(['ilike', 'categoria', $this->categoria]);

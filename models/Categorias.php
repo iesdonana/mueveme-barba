@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "categorias".
  *
@@ -14,6 +12,8 @@ use Yii;
  */
 class Categorias extends \yii\db\ActiveRecord
 {
+    public $numNoticias;
+
     /**
      * {@inheritdoc}
      */
@@ -31,7 +31,13 @@ class Categorias extends \yii\db\ActiveRecord
             [['categoria'], 'required'],
             [['categoria'], 'string', 'max' => 255],
             [['categoria'], 'unique'],
+            [['numNoticias'], 'safe'],
         ];
+    }
+
+    public function attributes()
+    {
+        return array_merge(parent::attributes(), ['numNoticias']);
     }
 
     /**
@@ -51,5 +57,18 @@ class Categorias extends \yii\db\ActiveRecord
     public function getNoticias()
     {
         return $this->hasMany(Noticias::className(), ['categoria_id' => 'id'])->inverseOf('categoria');
+    }
+
+    public function afterFind()
+    {
+        $this->numNoticias = count($this->noticias);
+    }
+
+    public function getNumNoticias()
+    {
+        if (empty($this->_numNoticias)) {
+            $this->numNoticias = count($this->noticias);
+        }
+        return $this->numNoticias;
     }
 }

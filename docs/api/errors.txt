@@ -1,0 +1,1309 @@
+Array
+(
+    [0] => Array
+        (
+            [line] => 65
+            [file] => ./commands/HelloController.php
+            [message] => Property $help conflicts with a defined getter getHelp in app\commands\HelloController.
+        )
+
+    [1] => Array
+        (
+            [line] => 29
+            [file] => ./commands/UsuariosController.php
+            [message] => Undefined parameter documented: $message in actionDesbanear().
+        )
+
+    [2] => Array
+        (
+            [file] => ./controllers/CategoriasController.php
+            [message] => broken link to \app\controllers\Behavior in app\controllers\CategoriasController
+        )
+
+    [3] => Array
+        (
+            [line] => 96
+            [file] => ./controllers/ComentariosController.php
+            [message] => Undefined parameter documented: $pelicula_id in actionCreate().
+        )
+
+    [4] => Array
+        (
+            [file] => ./controllers/ComentariosController.php
+            [message] => broken link to \app\controllers\Behavior in app\controllers\ComentariosController
+        )
+
+    [5] => Array
+        (
+            [file] => ./controllers/NoticiasController.php
+            [message] => broken link to \app\controllers\Behavior in app\controllers\NoticiasController
+        )
+
+    [6] => Array
+        (
+            [file] => ./controllers/SiteController.php
+            [message] => broken link to \Behavior in app\controllers\SiteController
+        )
+
+    [7] => Array
+        (
+            [file] => ./controllers/UsuariosController.php
+            [message] => broken link to \app\controllers\Behavior in app\controllers\UsuariosController
+        )
+
+    [8] => Array
+        (
+            [line] => 80
+            [file] => ./controllers/VotosController.php
+            [message] => Undefined parameter documented: $voto in actionCreate().
+        )
+
+    [9] => Array
+        (
+            [file] => ./controllers/VotosController.php
+            [message] => broken link to \app\controllers\Behavior in app\controllers\VotosController
+        )
+
+    [10] => Array
+        (
+            [file] => ./models/Categorias.php
+            [message] => broken link to \app\models\Validator in app\models\Categorias
+        )
+
+    [11] => Array
+        (
+            [file] => ./models/Categorias.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\Categorias
+        )
+
+    [12] => Array
+        (
+            [file] => ./models/Categorias.php
+            [message] => broken link to \app\models\Inflector::camel2id() in app\models\Categorias
+        )
+
+    [13] => Array
+        (
+            [file] => ./models/Categorias.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Categorias
+        )
+
+    [14] => Array
+        (
+            [file] => ./models/Categorias.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Categorias
+        )
+
+    [15] => Array
+        (
+            [file] => ./models/CategoriasSearch.php
+            [message] => broken link to \app\models\Validator in app\models\CategoriasSearch
+        )
+
+    [16] => Array
+        (
+            [file] => ./models/CategoriasSearch.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\CategoriasSearch
+        )
+
+    [17] => Array
+        (
+            [file] => ./models/Comentarios.php
+            [message] => broken link to \app\models\Validator in app\models\Comentarios
+        )
+
+    [18] => Array
+        (
+            [file] => ./models/Comentarios.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\Comentarios
+        )
+
+    [19] => Array
+        (
+            [file] => ./models/Comentarios.php
+            [message] => broken link to \app\models\Inflector::camel2id() in app\models\Comentarios
+        )
+
+    [20] => Array
+        (
+            [file] => ./models/Comentarios.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Comentarios
+        )
+
+    [21] => Array
+        (
+            [file] => ./models/Comentarios.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Comentarios
+        )
+
+    [22] => Array
+        (
+            [file] => ./models/ComentariosSearch.php
+            [message] => broken link to \app\models\Validator in app\models\ComentariosSearch
+        )
+
+    [23] => Array
+        (
+            [file] => ./models/ComentariosSearch.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\ComentariosSearch
+        )
+
+    [24] => Array
+        (
+            [file] => ./models/Movimientos.php
+            [message] => broken link to \app\models\Validator in app\models\Movimientos
+        )
+
+    [25] => Array
+        (
+            [file] => ./models/Movimientos.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\Movimientos
+        )
+
+    [26] => Array
+        (
+            [file] => ./models/Movimientos.php
+            [message] => broken link to \app\models\Inflector::camel2id() in app\models\Movimientos
+        )
+
+    [27] => Array
+        (
+            [file] => ./models/Movimientos.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Movimientos
+        )
+
+    [28] => Array
+        (
+            [file] => ./models/Movimientos.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Movimientos
+        )
+
+    [29] => Array
+        (
+            [file] => ./models/MovimientosSearch.php
+            [message] => broken link to \app\models\Validator in app\models\MovimientosSearch
+        )
+
+    [30] => Array
+        (
+            [file] => ./models/MovimientosSearch.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\MovimientosSearch
+        )
+
+    [31] => Array
+        (
+            [file] => ./models/Noticias.php
+            [message] => broken link to \app\models\Validator in app\models\Noticias
+        )
+
+    [32] => Array
+        (
+            [file] => ./models/Noticias.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\Noticias
+        )
+
+    [33] => Array
+        (
+            [file] => ./models/Noticias.php
+            [message] => broken link to \app\models\Inflector::camel2id() in app\models\Noticias
+        )
+
+    [34] => Array
+        (
+            [file] => ./models/Noticias.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Noticias
+        )
+
+    [35] => Array
+        (
+            [file] => ./models/Noticias.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Noticias
+        )
+
+    [36] => Array
+        (
+            [file] => ./models/NoticiasSearch.php
+            [message] => broken link to \app\models\Validator in app\models\NoticiasSearch
+        )
+
+    [37] => Array
+        (
+            [file] => ./models/NoticiasSearch.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\NoticiasSearch
+        )
+
+    [38] => Array
+        (
+            [line] => 7
+            [file] => ./models/User.php
+            [message] => Property $id conflicts with a defined getter getId in app\models\User.
+        )
+
+    [39] => Array
+        (
+            [line] => 10
+            [file] => ./models/User.php
+            [message] => Property $authKey conflicts with a defined getter getAuthKey in app\models\User.
+        )
+
+    [40] => Array
+        (
+            [file] => ./models/User.php
+            [message] => broken link to \User::enableAutoLogin in app\models\User
+        )
+
+    [41] => Array
+        (
+            [file] => ./models/User.php
+            [message] => broken link to \User::enableAutoLogin in app\models\User
+        )
+
+    [42] => Array
+        (
+            [file] => ./models/Usuarios.php
+            [message] => broken link to \app\models\Validator in app\models\Usuarios
+        )
+
+    [43] => Array
+        (
+            [file] => ./models/Usuarios.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\Usuarios
+        )
+
+    [44] => Array
+        (
+            [file] => ./models/Usuarios.php
+            [message] => broken link to \app\models\Inflector::camel2id() in app\models\Usuarios
+        )
+
+    [45] => Array
+        (
+            [file] => ./models/Usuarios.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Usuarios
+        )
+
+    [46] => Array
+        (
+            [file] => ./models/Usuarios.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Usuarios
+        )
+
+    [47] => Array
+        (
+            [file] => ./models/UsuariosSearch.php
+            [message] => broken link to \app\models\Validator in app\models\UsuariosSearch
+        )
+
+    [48] => Array
+        (
+            [file] => ./models/UsuariosSearch.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\UsuariosSearch
+        )
+
+    [49] => Array
+        (
+            [file] => ./models/Votos.php
+            [message] => broken link to \app\models\Validator in app\models\Votos
+        )
+
+    [50] => Array
+        (
+            [file] => ./models/Votos.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\Votos
+        )
+
+    [51] => Array
+        (
+            [file] => ./models/Votos.php
+            [message] => broken link to \app\models\Inflector::camel2id() in app\models\Votos
+        )
+
+    [52] => Array
+        (
+            [file] => ./models/Votos.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Votos
+        )
+
+    [53] => Array
+        (
+            [file] => ./models/Votos.php
+            [message] => broken link to \app\models\Connection::tablePrefix in app\models\Votos
+        )
+
+    [54] => Array
+        (
+            [file] => ./models/VotosSearch.php
+            [message] => broken link to \app\models\Validator in app\models\VotosSearch
+        )
+
+    [55] => Array
+        (
+            [file] => ./models/VotosSearch.php
+            [message] => broken link to \app\models\Validator::builtInValidators in app\models\VotosSearch
+        )
+
+    [56] => Array
+        (
+            [line] => 50
+            [file] => ./widgets/Alert.php
+            [message] => Method run has no parent to inherit from in app\widgets\Alert.
+        )
+
+    [57] => Array
+        (
+            [file] => ./widgets/Alert.php
+            [message] => broken link to \yii\bootstrap\Alert::closeButton in app\widgets\Alert
+        )
+
+    [58] => Array
+        (
+            [line] => 396
+            [file] => vendor/yiisoft/yii2/base/View.php
+            [message] => Method param $placeholder does not exist in parent method, @inheritdoc not possible in addDynamicPlaceholder in yii\base\View.
+        )
+
+    [59] => Array
+        (
+            [line] => 103
+            [file] => vendor/yiisoft/yii2/base/View.php
+            [message] => Property $dynamicPlaceholders conflicts with a defined getter getDynamicPlaceholders in yii\base\View.
+        )
+
+    [60] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\serializer in yii\caching\CacheInterface
+        )
+
+    [61] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\keyPrefix in yii\caching\CacheInterface
+        )
+
+    [62] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\keyPrefix in yii\caching\CacheInterface
+        )
+
+    [63] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\defaultDuration in yii\caching\CacheInterface
+        )
+
+    [64] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\serializer in yii\caching\CacheInterface
+        )
+
+    [65] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\serializer in yii\caching\CacheInterface
+        )
+
+    [66] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\serializer in yii\caching\CacheInterface
+        )
+
+    [67] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\defaultDuration in yii\caching\CacheInterface
+        )
+
+    [68] => Array
+        (
+            [file] => vendor/yiisoft/yii2/caching/CacheInterface.php
+            [message] => broken link to \yii\caching\serializer in yii\caching\CacheInterface
+        )
+
+    [69] => Array
+        (
+            [file] => vendor/yiisoft/yii2/console/controllers/HelpController.php
+            [message] => broken link to \yii\console\controllers\ExitCode::UNSPECIFIED_ERROR in yii\console\controllers\HelpController
+        )
+
+    [70] => Array
+        (
+            [file] => vendor/yiisoft/yii2/console/controllers/HelpController.php
+            [message] => broken link to \yii\console\controllers\ExitCode::OK in yii\console\controllers\HelpController
+        )
+
+    [71] => Array
+        (
+            [file] => vendor/yiisoft/yii2/console/controllers/MigrateController.php
+            [message] => broken link to \yii\console\controllers\ExitCode::UNSPECIFIED_ERROR in yii\console\controllers\MigrateController
+        )
+
+    [72] => Array
+        (
+            [file] => vendor/yiisoft/yii2/console/controllers/MigrateController.php
+            [message] => broken link to \yii\console\controllers\ExitCode::OK in yii\console\controllers\MigrateController
+        )
+
+    [73] => Array
+        (
+            [file] => vendor/yiisoft/yii2/console/controllers/ServeController.php
+            [message] => broken link to \yii\console\controllers\ExitCode::UNSPECIFIED_ERROR in yii\console\controllers\ServeController
+        )
+
+    [74] => Array
+        (
+            [file] => vendor/yiisoft/yii2/console/controllers/ServeController.php
+            [message] => broken link to \yii\console\controllers\ExitCode::OK in yii\console\controllers\ServeController
+        )
+
+    [75] => Array
+        (
+            [line] => 357
+            [file] => vendor/yiisoft/yii2/data/DataFilter.php
+            [message] => Undefined parameter documented:  in detectSearchAttributeType().
+        )
+
+    [76] => Array
+        (
+            [file] => vendor/yiisoft/yii2/data/DataFilter.php
+            [message] => broken link to \yii\data\model in yii\data\DataFilter
+        )
+
+    [77] => Array
+        (
+            [file] => vendor/yiisoft/yii2/data/DataFilter.php
+            [message] => broken link to \yii\data\model in yii\data\DataFilter
+        )
+
+    [78] => Array
+        (
+            [file] => vendor/yiisoft/yii2/data/DataFilter.php
+            [message] => broken link to \yii\data\model in yii\data\DataFilter
+        )
+
+    [79] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/ArrayExpression.php
+            [message] => broken link to \yii\db\dimensions in yii\db\ArrayExpression
+        )
+
+    [80] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/ArrayExpression.php
+            [message] => broken link to \yii\db\type in yii\db\ArrayExpression
+        )
+
+    [81] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/ArrayExpression.php
+            [message] => broken link to \yii\db\value in yii\db\ArrayExpression
+        )
+
+    [82] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Command.php
+            [message] => broken link to \yii\db\yii\db\PdoValue in yii\db\Command
+        )
+
+    [83] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Command.php
+            [message] => broken link to \yii\db\yii\db\Query in yii\db\Command
+        )
+
+    [84] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Command.php
+            [message] => broken link to \yii\db\yii\db\Query in yii\db\Command
+        )
+
+    [85] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Command.php
+            [message] => broken link to \PDOStatement::execute() in yii\db\Command
+        )
+
+    [86] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Connection.php
+            [message] => broken link to \version_compare() in yii\db\Connection
+        )
+
+    [87] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Connection.php
+            [message] => broken link to \version_compare() in yii\db\Connection
+        )
+
+    [88] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/ExpressionBuilder.php
+            [message] => broken link to \yii\db\yii\db\Expression in yii\db\ExpressionBuilder
+        )
+
+    [89] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/ExpressionBuilder.php
+            [message] => broken link to \yii\db\yii\db\Expression in yii\db\ExpressionBuilder
+        )
+
+    [90] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/ExpressionBuilder.php
+            [message] => broken link to \yii\db\yii\db\Expression in yii\db\ExpressionBuilder
+        )
+
+    [91] => Array
+        (
+            [line] => 99
+            [file] => vendor/yiisoft/yii2/db/Migration.php
+            [message] => Method getDb has no parent to inherit from in yii\db\Migration.
+        )
+
+    [92] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [93] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [94] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [95] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [96] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [97] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [98] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [99] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\setConditonClasses() in yii\db\QueryBuilder
+        )
+
+    [100] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\setExpressionBuilder() in yii\db\QueryBuilder
+        )
+
+    [101] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\condition\ConditionInterface in yii\db\QueryBuilder
+        )
+
+    [102] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\Query in yii\db\QueryBuilder
+        )
+
+    [103] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\Query in yii\db\QueryBuilder
+        )
+
+    [104] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/QueryBuilder.php
+            [message] => broken link to \yii\db\yii\db\Query in yii\db\QueryBuilder
+        )
+
+    [105] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [106] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [107] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [108] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [109] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [110] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [111] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [112] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/Schema.php
+            [message] => broken link to \version_compare() in yii\db\Schema
+        )
+
+    [113] => Array
+        (
+            [line] => 69
+            [file] => vendor/yiisoft/yii2/db/conditions/BetweenColumnsCondition.php
+            [message] => Undefined parameter documented:  in __construct().
+        )
+
+    [114] => Array
+        (
+            [line] => 47
+            [file] => vendor/yiisoft/yii2/db/conditions/InCondition.php
+            [message] => Undefined parameter documented:  in __construct().
+        )
+
+    [115] => Array
+        (
+            [line] => 47
+            [file] => vendor/yiisoft/yii2/db/conditions/InCondition.php
+            [message] => Undefined parameter documented:  in __construct().
+        )
+
+    [116] => Array
+        (
+            [line] => 48
+            [file] => vendor/yiisoft/yii2/db/conditions/LikeCondition.php
+            [message] => Undefined parameter documented:  in setEscapingReplacements().
+        )
+
+    [117] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/conditions/NotCondition.php
+            [message] => broken link to \yii\db\conditions\condition in yii\db\conditions\NotCondition
+        )
+
+    [118] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/conditions/NotCondition.php
+            [message] => broken link to \yii\db\conditions\condition in yii\db\conditions\NotCondition
+        )
+
+    [119] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/conditions/NotCondition.php
+            [message] => broken link to \yii\db\conditions\condition in yii\db\conditions\NotCondition
+        )
+
+    [120] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/cubrid/QueryBuilder.php
+            [message] => broken link to \yii\db\cubrid\Query in yii\db\cubrid\QueryBuilder
+        )
+
+    [121] => Array
+        (
+            [line] => 159
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => Method loadTablePrimaryKey has no parent to inherit from in yii\db\cubrid\Schema.
+        )
+
+    [122] => Array
+        (
+            [line] => 176
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => Method loadTableForeignKeys has no parent to inherit from in yii\db\cubrid\Schema.
+        )
+
+    [123] => Array
+        (
+            [line] => 206
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => Method loadTableIndexes has no parent to inherit from in yii\db\cubrid\Schema.
+        )
+
+    [124] => Array
+        (
+            [line] => 214
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => Method loadTableUniques has no parent to inherit from in yii\db\cubrid\Schema.
+        )
+
+    [125] => Array
+        (
+            [line] => 223
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => Method loadTableChecks has no parent to inherit from in yii\db\cubrid\Schema.
+        )
+
+    [126] => Array
+        (
+            [line] => 232
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => Method loadTableDefaultValues has no parent to inherit from in yii\db\cubrid\Schema.
+        )
+
+    [127] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => broken link to \yii\db\cubrid\ColumnSchema in yii\db\cubrid\Schema
+        )
+
+    [128] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/cubrid/Schema.php
+            [message] => broken link to \yii\db\cubrid\ColumnSchema in yii\db\cubrid\Schema
+        )
+
+    [129] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/cubrid/conditions/LikeConditionBuilder.php
+            [message] => broken link to \yii\db\cubrid\conditions\buildLikeCondition() in yii\db\cubrid\conditions\LikeConditionBuilder
+        )
+
+    [130] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \yii\db\mssql\Query::orderBy in yii\db\mssql\QueryBuilder
+        )
+
+    [131] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \yii\db\mssql\Query::limit in yii\db\mssql\QueryBuilder
+        )
+
+    [132] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \yii\db\mssql\Query::offset in yii\db\mssql\QueryBuilder
+        )
+
+    [133] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \yii\db\mssql\yii\db\Query in yii\db\mssql\QueryBuilder
+        )
+
+    [134] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \yii\db\mssql\yii\db\Query in yii\db\mssql\QueryBuilder
+        )
+
+    [135] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \version_compare() in yii\db\mssql\QueryBuilder
+        )
+
+    [136] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \yii\db\mssql\Query::where() in yii\db\mssql\QueryBuilder
+        )
+
+    [137] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mssql/QueryBuilder.php
+            [message] => broken link to \yii\db\mssql\Query in yii\db\mssql\QueryBuilder
+        )
+
+    [138] => Array
+        (
+            [line] => 184
+            [file] => vendor/yiisoft/yii2/db/mssql/Schema.php
+            [message] => Method loadTablePrimaryKey has no parent to inherit from in yii\db\mssql\Schema.
+        )
+
+    [139] => Array
+        (
+            [line] => 192
+            [file] => vendor/yiisoft/yii2/db/mssql/Schema.php
+            [message] => Method loadTableForeignKeys has no parent to inherit from in yii\db\mssql\Schema.
+        )
+
+    [140] => Array
+        (
+            [line] => 200
+            [file] => vendor/yiisoft/yii2/db/mssql/Schema.php
+            [message] => Method loadTableIndexes has no parent to inherit from in yii\db\mssql\Schema.
+        )
+
+    [141] => Array
+        (
+            [line] => 239
+            [file] => vendor/yiisoft/yii2/db/mssql/Schema.php
+            [message] => Method loadTableUniques has no parent to inherit from in yii\db\mssql\Schema.
+        )
+
+    [142] => Array
+        (
+            [line] => 247
+            [file] => vendor/yiisoft/yii2/db/mssql/Schema.php
+            [message] => Method loadTableChecks has no parent to inherit from in yii\db\mssql\Schema.
+        )
+
+    [143] => Array
+        (
+            [line] => 255
+            [file] => vendor/yiisoft/yii2/db/mssql/Schema.php
+            [message] => Method loadTableDefaultValues has no parent to inherit from in yii\db\mssql\Schema.
+        )
+
+    [144] => Array
+        (
+            [line] => 548
+            [file] => vendor/yiisoft/yii2/db/mssql/Schema.php
+            [message] => Method findViewNames has no parent to inherit from in yii\db\mssql\Schema.
+        )
+
+    [145] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mysql/ColumnSchema.php
+            [message] => broken link to \yii\db\mysql\Expression in yii\db\mysql\ColumnSchema
+        )
+
+    [146] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mysql/ColumnSchema.php
+            [message] => broken link to \yii\db\mysql\Expression in yii\db\mysql\ColumnSchema
+        )
+
+    [147] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/mysql/QueryBuilder.php
+            [message] => broken link to \yii\db\mysql\yii\db\Query in yii\db\mysql\QueryBuilder
+        )
+
+    [148] => Array
+        (
+            [line] => 136
+            [file] => vendor/yiisoft/yii2/db/mysql/Schema.php
+            [message] => Method loadTablePrimaryKey has no parent to inherit from in yii\db\mysql\Schema.
+        )
+
+    [149] => Array
+        (
+            [line] => 144
+            [file] => vendor/yiisoft/yii2/db/mysql/Schema.php
+            [message] => Method loadTableForeignKeys has no parent to inherit from in yii\db\mysql\Schema.
+        )
+
+    [150] => Array
+        (
+            [line] => 152
+            [file] => vendor/yiisoft/yii2/db/mysql/Schema.php
+            [message] => Method loadTableIndexes has no parent to inherit from in yii\db\mysql\Schema.
+        )
+
+    [151] => Array
+        (
+            [line] => 188
+            [file] => vendor/yiisoft/yii2/db/mysql/Schema.php
+            [message] => Method loadTableUniques has no parent to inherit from in yii\db\mysql\Schema.
+        )
+
+    [152] => Array
+        (
+            [line] => 197
+            [file] => vendor/yiisoft/yii2/db/mysql/Schema.php
+            [message] => Method loadTableChecks has no parent to inherit from in yii\db\mysql\Schema.
+        )
+
+    [153] => Array
+        (
+            [line] => 206
+            [file] => vendor/yiisoft/yii2/db/mysql/Schema.php
+            [message] => Method loadTableDefaultValues has no parent to inherit from in yii\db\mysql\Schema.
+        )
+
+    [154] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/oci/QueryBuilder.php
+            [message] => broken link to \yii\db\oci\yii\db\Query in yii\db\oci\QueryBuilder
+        )
+
+    [155] => Array
+        (
+            [line] => 164
+            [file] => vendor/yiisoft/yii2/db/oci/Schema.php
+            [message] => Method loadTablePrimaryKey has no parent to inherit from in yii\db\oci\Schema.
+        )
+
+    [156] => Array
+        (
+            [line] => 172
+            [file] => vendor/yiisoft/yii2/db/oci/Schema.php
+            [message] => Method loadTableForeignKeys has no parent to inherit from in yii\db\oci\Schema.
+        )
+
+    [157] => Array
+        (
+            [line] => 180
+            [file] => vendor/yiisoft/yii2/db/oci/Schema.php
+            [message] => Method loadTableIndexes has no parent to inherit from in yii\db\oci\Schema.
+        )
+
+    [158] => Array
+        (
+            [line] => 221
+            [file] => vendor/yiisoft/yii2/db/oci/Schema.php
+            [message] => Method loadTableUniques has no parent to inherit from in yii\db\oci\Schema.
+        )
+
+    [159] => Array
+        (
+            [line] => 229
+            [file] => vendor/yiisoft/yii2/db/oci/Schema.php
+            [message] => Method loadTableChecks has no parent to inherit from in yii\db\oci\Schema.
+        )
+
+    [160] => Array
+        (
+            [line] => 238
+            [file] => vendor/yiisoft/yii2/db/oci/Schema.php
+            [message] => Method loadTableDefaultValues has no parent to inherit from in yii\db\oci\Schema.
+        )
+
+    [161] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/oci/conditions/LikeConditionBuilder.php
+            [message] => broken link to \yii\db\oci\conditions\buildLikeCondition() in yii\db\oci\conditions\LikeConditionBuilder
+        )
+
+    [162] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/pgsql/ArrayExpressionBuilder.php
+            [message] => broken link to \yii\db\pgsql\type in yii\db\pgsql\ArrayExpressionBuilder
+        )
+
+    [163] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/pgsql/ColumnSchema.php
+            [message] => broken link to \yii\db\pgsql\Expression in yii\db\pgsql\ColumnSchema
+        )
+
+    [164] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/pgsql/ColumnSchema.php
+            [message] => broken link to \yii\db\pgsql\Expression in yii\db\pgsql\ColumnSchema
+        )
+
+    [165] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/pgsql/JsonExpressionBuilder.php
+            [message] => broken link to \yii\db\pgsql\type in yii\db\pgsql\JsonExpressionBuilder
+        )
+
+    [166] => Array
+        (
+            [line] => 105
+            [file] => vendor/yiisoft/yii2/db/pgsql/QueryBuilder.php
+            [message] => Property $expressionBuilders conflicts with a defined setter setExpressionBuilders in yii\db\pgsql\QueryBuilder.
+        )
+
+    [167] => Array
+        (
+            [line] => 80
+            [file] => vendor/yiisoft/yii2/db/pgsql/QueryBuilder.php
+            [message] => Property $conditionClasses conflicts with a defined setter setConditionClasses in yii\db\pgsql\QueryBuilder.
+        )
+
+    [168] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/pgsql/QueryBuilder.php
+            [message] => broken link to \yii\db\pgsql\yii\db\Query in yii\db\pgsql\QueryBuilder
+        )
+
+    [169] => Array
+        (
+            [file] => vendor/yiisoft/yii2/db/pgsql/QueryBuilder.php
+            [message] => broken link to \yii\db\pgsql\yii\db\Query in yii\db\pgsql\QueryBuilder
+        )
+
+    [170] => Array
+        (
+            [line] => 203
+            [file] => vendor/yiisoft/yii2/db/pgsql/Schema.php
+            [message] => Method loadTablePrimaryKey has no parent to inherit from in yii\db\pgsql\Schema.
+        )
+
+    [171] => Array
+        (
+            [line] => 211
+            [file] => vendor/yiisoft/yii2/db/pgsql/Schema.php
+            [message] => Method loadTableForeignKeys has no parent to inherit from in yii\db\pgsql\Schema.
+        )
+
+    [172] => Array
+        (
+            [line] => 219
+            [file] => vendor/yiisoft/yii2/db/pgsql/Schema.php
+            [message] => Method loadTableIndexes has no parent to inherit from in yii\db\pgsql\Schema.
+        )
+
+    [173] => Array
+        (
+            [line] => 263
+            [file] => vendor/yiisoft/yii2/db/pgsql/Schema.php
+            [message] => Method loadTableUniques has no parent to inherit from in yii\db\pgsql\Schema.
+        )
+
+    [174] => Array
+        (
+            [line] => 271
+            [file] => vendor/yiisoft/yii2/db/pgsql/Schema.php
+            [message] => Method loadTableChecks has no parent to inherit from in yii\db\pgsql\Schema.
+        )
+
+    [175] => Array
+        (
+            [line] => 280
+            [file] => vendor/yiisoft/yii2/db/pgsql/Schema.php
+            [message] => Method loadTableDefaultValues has no parent to inherit from in yii\db\pgsql\Schema.
+        )
+
+    [176] => Array
+        (
+            [line] => 110
+            [file] => vendor/yiisoft/yii2/db/sqlite/Schema.php
+            [message] => Method loadTablePrimaryKey has no parent to inherit from in yii\db\sqlite\Schema.
+        )
+
+    [177] => Array
+        (
+            [line] => 118
+            [file] => vendor/yiisoft/yii2/db/sqlite/Schema.php
+            [message] => Method loadTableForeignKeys has no parent to inherit from in yii\db\sqlite\Schema.
+        )
+
+    [178] => Array
+        (
+            [line] => 141
+            [file] => vendor/yiisoft/yii2/db/sqlite/Schema.php
+            [message] => Method loadTableIndexes has no parent to inherit from in yii\db\sqlite\Schema.
+        )
+
+    [179] => Array
+        (
+            [line] => 149
+            [file] => vendor/yiisoft/yii2/db/sqlite/Schema.php
+            [message] => Method loadTableUniques has no parent to inherit from in yii\db\sqlite\Schema.
+        )
+
+    [180] => Array
+        (
+            [line] => 157
+            [file] => vendor/yiisoft/yii2/db/sqlite/Schema.php
+            [message] => Method loadTableChecks has no parent to inherit from in yii\db\sqlite\Schema.
+        )
+
+    [181] => Array
+        (
+            [line] => 197
+            [file] => vendor/yiisoft/yii2/db/sqlite/Schema.php
+            [message] => Method loadTableDefaultValues has no parent to inherit from in yii\db\sqlite\Schema.
+        )
+
+    [182] => Array
+        (
+            [file] => vendor/yiisoft/yii2/di/Instance.php
+            [message] => broken link to \yii\di\var_export() in yii\di\Instance
+        )
+
+    [183] => Array
+        (
+            [line] => 24
+            [file] => vendor/yiisoft/yii2/di/NotInstantiableException.php
+            [message] => Method __construct has no parent to inherit from in yii\di\NotInstantiableException.
+        )
+
+    [184] => Array
+        (
+            [line] => 307
+            [file] => vendor/yiisoft/yii2/filters/PageCache.php
+            [message] => Method getView has no parent to inherit from in yii\filters\PageCache.
+        )
+
+    [185] => Array
+        (
+            [line] => 122
+            [file] => vendor/yiisoft/yii2/filters/PageCache.php
+            [message] => Property $view conflicts with a defined getter getView in yii\filters\PageCache.
+        )
+
+    [186] => Array
+        (
+            [file] => vendor/yiisoft/yii2/helpers/BaseHtml.php
+            [message] => broken link to \yii\helpers\mergeCssClasses() in yii\helpers\BaseHtml
+        )
+
+    [187] => Array
+        (
+            [file] => vendor/yiisoft/yii2/helpers/BaseStringHelper.php
+            [message] => broken link to \yii\helpers\fnmatch() in yii\helpers\BaseStringHelper
+        )
+
+    [188] => Array
+        (
+            [line] => 34
+            [file] => vendor/yiisoft/yii2/rbac/BaseManager.php
+            [message] => Property $defaultRoles conflicts with a defined setter setDefaultRoles in yii\rbac\BaseManager.
+        )
+
+    [189] => Array
+        (
+            [line] => 123
+            [file] => vendor/yiisoft/yii2/rbac/DbManager.php
+            [message] => Method checkAccess has no parent to inherit from in yii\rbac\DbManager.
+        )
+
+    [190] => Array
+        (
+            [line] => 98
+            [file] => vendor/yiisoft/yii2/rbac/DbManager.php
+            [message] => Property $rules conflicts with a defined getter getRules in yii\rbac\DbManager.
+        )
+
+    [191] => Array
+        (
+            [line] => 99
+            [file] => vendor/yiisoft/yii2/rbac/PhpManager.php
+            [message] => Method checkAccess has no parent to inherit from in yii\rbac\PhpManager.
+        )
+
+    [192] => Array
+        (
+            [line] => 79
+            [file] => vendor/yiisoft/yii2/rbac/PhpManager.php
+            [message] => Property $rules conflicts with a defined getter getRules in yii\rbac\PhpManager.
+        )
+
+    [193] => Array
+        (
+            [file] => vendor/yiisoft/yii2/rest/ActiveController.php
+            [message] => broken link to \yii\rest\VerbFilter::actions in yii\rest\ActiveController
+        )
+
+    [194] => Array
+        (
+            [file] => vendor/yiisoft/yii2/rest/Controller.php
+            [message] => broken link to \yii\rest\Behavior in yii\rest\Controller
+        )
+
+    [195] => Array
+        (
+            [file] => vendor/yiisoft/yii2/test/FileFixtureTrait.php
+            [message] => broken link to \yii\test\getData() in yii\test\FileFixtureTrait
+        )
+
+    [196] => Array
+        (
+            [file] => vendor/yiisoft/yii2/test/FileFixtureTrait.php
+            [message] => broken link to \yii\test\getData() in yii\test\FileFixtureTrait
+        )
+
+    [197] => Array
+        (
+            [file] => vendor/yiisoft/yii2/test/FileFixtureTrait.php
+            [message] => broken link to \yii\test\getData() in yii\test\FileFixtureTrait
+        )
+
+    [198] => Array
+        (
+            [file] => vendor/yiisoft/yii2/test/FileFixtureTrait.php
+            [message] => broken link to \yii\test\getData() in yii\test\FileFixtureTrait
+        )
+
+    [199] => Array
+        (
+            [file] => vendor/yiisoft/yii2/test/FileFixtureTrait.php
+            [message] => broken link to \yii\test\data in yii\test\FileFixtureTrait
+        )
+
+    [200] => Array
+        (
+            [line] => 364
+            [file] => vendor/yiisoft/yii2/validators/FileValidator.php
+            [message] => Method param $trim does not exist in parent method, @inheritdoc not possible in isEmpty in yii\validators\FileValidator.
+        )
+
+    [201] => Array
+        (
+            [file] => vendor/yiisoft/yii2/web/ErrorAction.php
+            [message] => broken link to \yii\web\yii\web\ErrorHandler in yii\web\ErrorAction
+        )
+
+    [202] => Array
+        (
+            [file] => vendor/yiisoft/yii2/web/ErrorAction.php
+            [message] => broken link to \yii\web\yii\base\UserException in yii\web\ErrorAction
+        )
+
+    [203] => Array
+        (
+            [file] => vendor/yiisoft/yii2/web/ErrorAction.php
+            [message] => broken link to \yii\web\yii\web\ErrorHandler in yii\web\ErrorAction
+        )
+
+    [204] => Array
+        (
+            [file] => vendor/yiisoft/yii2/web/ErrorAction.php
+            [message] => broken link to \yii\web\yii\base\UserException in yii\web\ErrorAction
+        )
+
+    [205] => Array
+        (
+            [line] => 24
+            [file] => vendor/yiisoft/yii2/web/HeadersAlreadySentException.php
+            [message] => Method __construct has no parent to inherit from in yii\web\HeadersAlreadySentException.
+        )
+
+    [206] => Array
+        (
+            [file] => vendor/yiisoft/yii2/web/Request.php
+            [message] => broken link to yii\validators\IpValidator::::setRanges() in yii\web\Request
+        )
+
+)

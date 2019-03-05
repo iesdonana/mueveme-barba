@@ -153,10 +153,10 @@ class NoticiasController extends Controller
 
     protected function listaCategorias()
     {
-        return Categorias::find()
+        return array_merge([''], Categorias::find()
             ->select('categoria')
             ->indexBy('id')
-            ->column();
+            ->column());
     }
 
     public function actionMenear($id)

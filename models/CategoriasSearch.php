@@ -41,7 +41,7 @@ class CategoriasSearch extends Categorias
     public function search($params)
     {
         $query = Categorias::find()
-            ->select('categorias.*, count(noticias.id) AS numNoticias')
+            ->select('categorias.*, count(noticias.id) AS "numNoticias"')
             ->joinWith('noticias')
             ->groupBy('categorias.id');
 
@@ -49,6 +49,9 @@ class CategoriasSearch extends Categorias
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
         ]);
 
         $this->load($params);

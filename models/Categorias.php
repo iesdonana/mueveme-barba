@@ -31,7 +31,6 @@ class Categorias extends \yii\db\ActiveRecord
             [['categoria'], 'required'],
             [['categoria'], 'string', 'max' => 255],
             [['categoria'], 'unique'],
-            [['numNoticias'], 'safe'],
         ];
     }
 

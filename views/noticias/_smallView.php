@@ -47,7 +47,9 @@ $this->registerJs($js);
             </div>
         <?php endif ?>
     <div class="media-left text-center">
-        <?= Html::button('Mover (' .Html::encode($model->movimiento) . ' movimientos)', ['class' => 'btn-primary boton boton', 'id' => 'boton-' . $model->id, 'data-key' => $model->id]) ?>
+        <?= Html::button('Mover (' .Html::encode($model->movimiento) . ' movimientos)',
+        ['class' => 'btn-primary boton boton',
+        'id' => 'boton-' . $model->id, 'data-key' => $model->id]) ?>
            <?= Html::a('Comentarios',
                 ['comentarios/ver','id'=> $model->id],
                 ['class' => 'btn btn-primary']) ?>
